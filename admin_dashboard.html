@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baira Panditha Naati Vaidyalaya</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="js/translation.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --sidebar-width: 300px;
+            --primary-glow: rgba(46, 125, 50, 0.15);
+            --secondary-glow: rgba(76, 175, 80, 0.12);
+            --accent-glow: rgba(129, 199, 132, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --sidebar-bg: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+            --card-spacing: 32px;
+            --text-primary: #1b5e20;
+            --text-secondary: #558b2f;
+            --text-muted: #757575;
+            --bg-white: #ffffff;
+            --bg-light: #f1f8f4;
+            --border-light: #e0f2e9;
+            --green-accent: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f8fdf9 0%, #ffffff 50%, #f8fdf9 100%);
+            color: #2e7d32;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, var(--primary-glow), transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--secondary-glow), transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--accent-glow), transparent 60%);
+            opacity: 0.3;
+            animation: bgPulse 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes bgPulse {
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* 3D Container */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            height: 100vh;
+            perspective: 2500px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced 3D Sidebar */
+        .sidebar {
+            background: var(--sidebar-bg);
+            border-right: 1px solid rgba(46, 125, 50, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow:
+                4px 0 20px rgba(46, 125, 50, 0.15),
+                inset -1px 0 0 rgba(255, 255, 255, 0.1);
+            z-index: 100;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    transparent,
+                    rgba(129, 199, 132, 0.6) 30%,
+                    rgba(102, 187, 106, 0.6) 70%,
+                    transparent);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Logo Section */
+        .sidebar .flex.items-center.gap-3 {
+            transform: translateZ(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar .flex.items-center.gap-3:hover {
+            transform: translateZ(50px) scale(1.05);
+        }
+
+        /* Enhanced Navigation Items */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 24px;
+            border-radius: 16px;
+            margin: 6px 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 16px;
+        }
+
+        .nav-item:hover::before {
+            opacity: 1;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: translateX(12px) translateZ(30px) scale(1.02);
+            box-shadow:
+                -4px 0 20px rgba(129, 199, 132, 0.4),
+                0 8px 24px rgba(46, 125, 50, 0.3);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            color: #ffffff;
+            box-shadow: inset 5px 0 0 #a5d6a7;
+            font-weight: 600;
+            transform: translateX(8px) translateZ(20px);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #a5d6a7;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #a5d6a7;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: translateY(-50%) scale(1.3);
+            }
+        }
+
+        .nav-item svg {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 0 0 transparent);
+        }
+
+        .nav-item:hover svg {
+            transform: scale(1.25) rotate(-8deg);
+            filter: drop-shadow(0 0 8px rgba(165, 214, 167, 0.8));
+        }
+
+        .nav-item.active svg {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 6px rgba(165, 214, 167, 0.9));
+        }
+
+        /* Badge Counter */
+        .nav-badge {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #81c784, #66bb6a);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(129, 199, 132, 0.5);
+            min-width: 24px;
+            text-align: center;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: smooth;
+            padding: 0;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.3), transparent);
+            margin: var(--card-spacing) 0;
+            position: relative;
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+        }
+
+        /* Enhanced Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(76, 175, 80, 0.15);
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow:
+                0 4px 20px rgba(46, 125, 50, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.2), transparent);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.015);
+            border-color: rgba(76, 175, 80, 0.3);
+            box-shadow:
+                0 8px 30px rgba(46, 125, 50, 0.15),
+                0 0 30px rgba(76, 175, 80, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        /* Interactive Card Variants */
+        .card-network:hover {
+            border-color: rgba(63, 81, 181, 0.3);
+            box-shadow: 0 15px 35px rgba(63, 81, 181, 0.15), 0 0 40px rgba(63, 81, 181, 0.1);
+        }
+
+        .card-network .stat-value {
+            background: linear-gradient(135deg, #1A237E 0%, #3F51B5 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .card-network .stat-badge {
+            background: rgba(63, 81, 181, 0.1);
+            color: #3949AB;
+            border-color: rgba(63, 81, 181, 0.2);
+        }
+
+        .card-orders:hover {
+            border-color: rgba(255, 152, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.15), 0 0 40px rgba(255, 152, 0, 0.1);
+        }
+
+        .card-orders .stat-value {
+            background: linear-gradient(135deg, #E65100 0%, #FF9800 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .card-orders .stat-badge {
+            background: rgba(255, 152, 0, 0.1);
+            color: #F57C00;
+            border-color: rgba(255, 152, 0, 0.2);
+        }
+
+        .card-treatments:hover {
+            border-color: rgba(76, 175, 80, 0.3);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.15), 0 0 40px rgba(76, 175, 80, 0.1);
+        }
+
+        .card-treatments .stat-value {
+            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .card-treatments .stat-badge {
+            background: rgba(76, 175, 80, 0.1);
+            color: #2E7D32;
+            border-color: rgba(76, 175, 80, 0.2);
+        }
+
+        .card-activity:hover {
+            border-color: rgba(244, 67, 54, 0.3);
+            box-shadow: 0 15px 35px rgba(244, 67, 54, 0.15), 0 0 40px rgba(244, 67, 54, 0.1);
+        }
+
+        .card-activity .stat-value {
+            background: linear-gradient(135deg, #B71C1C 0%, #F44336 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .card-activity .stat-badge {
+            background: rgba(244, 67, 54, 0.1);
+            color: #D32F2F;
+            border-color: rgba(244, 67, 54, 0.2);
+        }
+
+        /* Stats Section */
+        .stat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: rgba(76, 175, 80, 0.1);
+            color: #2e7d32;
+            margin-bottom: 12px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1b5e20 0%, #4CAF50 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Enhanced Tables */
+        .table-view {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 14px;
+        }
+
+        .table-view th {
+            padding: 14px 28px;
+            text-align: left;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #2e7d32;
+            font-weight: 700;
+            background: rgba(76, 175, 80, 0.08);
+            border-bottom: 2px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .table-view td {
+            padding: 22px 28px;
+            background: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(76, 175, 80, 0.1);
+            border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+            backdrop-filter: blur(10px);
+            color: #37474f;
+        }
+
+        .table-view tr td:first-child {
+            border-left: 1px solid rgba(76, 175, 80, 0.1);
+            border-radius: 24px 0 0 24px;
+        }
+
+        .table-view tr td:last-child {
+            border-right: 1px solid rgba(76, 175, 80, 0.1);
+            border-radius: 0 24px 24px 0;
+        }
+
+        .table-view tbody tr {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .table-view tbody tr:hover td {
+            background: rgba(76, 175, 80, 0.15);
+            transform: scale(1.008) translateX(4px);
+            border-color: rgba(76, 175, 80, 0.3);
+            box-shadow: 0 4px 16px rgba(46, 125, 50, 0.15);
+        }
+
+        /* Status Tags */
+        .status-tag {
+            padding: 7px 14px;
+            border-radius: 10px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: inline-block;
+        }
+
+        .status-tag.pending {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1.5px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .status-tag.confirmed {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1.5px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .status-tag.completed {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1.5px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .status-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(241, 248, 244, 0.8);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #4CAF50, #2e7d32);
+            border-radius: 10px;
+            border: 2px solid rgba(241, 248, 244, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #66bb6a, #43a047);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-up {
+            animation: fadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1280px) {
+            :root {
+                --sidebar-width: 260px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 90px 1fr;
+            }
+
+            :root {
+                --sidebar-width: 90px;
+            }
+
+            .sidebar span:not(.nav-badge),
+            .sidebar h1,
+            .sidebar p {
+                display: none;
+            }
+
+            .nav-item {
+                justify-content: center;
+                padding: 18px;
+            }
+
+            .nav-badge {
+                right: 8px;
+                font-size: 0.6rem;
+                padding: 2px 6px;
+            }
+
+            .nav-item.active::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
+            }
+
+            .table-view th,
+            .table-view td {
+                padding: 16px 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="overflow-hidden">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-10 px-2">
+                    <div>
+                        <h1 class="text-white font-bold text-lg tracking-wide" data-key="welcome_to_naati">Baira
+                            Panditha</h1>
+                        <p class="text-xs text-slate-400" data-key="admin_portal">Admin Portal</p>
+                    </div>
+                </div>
+
+                <nav class="space-y-2">
+                    <a href="admin_dashboard.html" class="nav-item">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                        <span data-key="dashboard">Dashboard</span>
+                    </a>
+                    <a href="admin_orders.html" class="nav-item">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span data-key="orders">Orders</span>
+                    </a>
+                    <a href="admin_bookings.html" class="nav-item">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span data-key="bookings">Bookings</span>
+                    </a>
+                </nav>
+            </div>
+
+            <button id="logoutBtn"
+                class="flex items-center gap-3 px-6 py-4 text-slate-400 hover:text-white transition-all rounded-2xl border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 group text-sm">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="group-hover:text-red-400 transition-colors">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                <span data-key="log_out" class="font-medium">Log Out</span>
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content p-8 lg:p-12">
+            <header class="flex justify-between items-center mb-12 animate-up">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2 tracking-tight" style="color: #1b5e20;"
+                        data-key="dashboard_overview">Control
+                        Center</h2>
+                    <p class="font-medium" style="color: #558b2f;" data-key="welcome_back_admin">Welcome back,
+                        Administrator</p>
+                </div>
+                <div class="flex items-center gap-4">
+                </div>
+            </header>
+
+            <!-- Loading State -->
+            <div id="loading" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="h-32 bg-green-50 rounded-3xl animate-pulse"></div>
+                <div class="h-32 bg-green-50 rounded-3xl animate-pulse"></div>
+                <div class="h-32 bg-green-50 rounded-3xl animate-pulse"></div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div id="dashboardContent" class="space-y-12" style="display: none;">
+                <!-- Stats Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-up"
+                    style="animation-delay: 0.1s">
+                    <div class="glass-card card-network group cursor-pointer" onclick="toggleSection('booking-section')">
+                        <span class="stat-badge">
+                            <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Total Bookings
+                        </span>
+                        <div class="stat-value" id="totalBookingsCount">0</div>
+                        <h4 class="font-semibold text-sm uppercase tracking-wider" style="color: #558b2f;"
+                            data-key="total_bookings">All Consultations</h4>
+                    </div>
+
+                    <div class="glass-card card-activity group cursor-pointer" onclick="toggleSection('order-section-wrapper')">
+                        <span class="stat-badge">
+                            <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            Total Orders
+                        </span>
+                        <div class="stat-value" id="totalOrdersCount">0</div>
+                        <h4 class="font-semibold text-sm uppercase tracking-wider" style="color: #558b2f;"
+                            data-key="total_orders">All Package Orders</h4>
+                    </div>
+
+                    <div class="glass-card card-treatments group cursor-pointer" onclick="toggleSection('booking-section')">
+                        <span class="stat-badge">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            Consultations
+                        </span>
+                        <div class="stat-value" id="pendingTreatmentsCount">0</div>
+                        <h4 class="font-semibold text-sm uppercase tracking-wider" style="color: #558b2f;"
+                            data-key="pending_treatments">Pending Bookings</h4>
+                    </div>
+
+                    <div class="glass-card card-orders group cursor-pointer" onclick="toggleSection('order-section-wrapper')">
+                        <span class="stat-badge">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
+                                </path>
+                            </svg>
+                            Orders
+                        </span>
+                        <div class="stat-value" id="pendingOrdersCount">0</div>
+                        <h4 class="font-semibold text-sm uppercase tracking-wider" style="color: #558b2f;"
+                            data-key="pending_orders">Pending Orders</h4>
+                    </div>
+                </div>
+
+                <!-- Unified Feed Section -->
+                <div id="order-section-wrapper" class="animate-up" style="display: none; animation-delay: 0.2s">
+                    <!-- Orders Table -->
+                    <section id="order-section" class="glass-card">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="text-xl font-bold flex items-center gap-3" style="color: #1b5e20;">
+                                <div class="w-2 h-6 bg-green-600 rounded-full"></div>
+                                <span data-key="recent_orders">Package Orders</span>
+                            </h3>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="table-view">
+                                <thead>
+                                    <tr>
+                                        <th data-key="name">Patient Name</th>
+                                        <th data-key="type">Inquiry Type</th>
+                                        <th data-key="date_time">Schedule</th>
+                                        <th title="Health Goals/Concerns">Problem</th>
+                                        <th title="Previous Ayurveda Experience">Exp. (Y/N)</th>
+                                        <th title="Previous Consultation Details">Exp. Details</th>
+                                        <th data-key="status">Status</th>
+                                        <th data-key="phone">Contact</th>
+                                        <th data-key="actions" class="text-right">Manage</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orderTableBody"></tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Full Width Bookings -->
+                <section id="booking-section" class="glass-card animate-up" style="animation-delay: 0.3s; display: none;">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-6">
+                        <div class="flex items-center gap-3">
+                            <h3 class="text-xl font-bold flex items-center gap-3" style="color: #1b5e20;">
+                                <div class="w-2 h-6 bg-green-600 rounded-full"></div>
+                                <span data-key="recent_bookings">Recent Consultations</span>
+                            </h3>
+                            <div
+                                class="flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-xl">
+                                <span class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></span>
+                                <span class="text-green-700 text-xs font-bold uppercase tracking-widest"
+                                    data-key="live_updates">Syncing Live</span>
+                            </div>
+                        </div>
+
+                        <!-- SEARCH BAR SECTION -->
+                        <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                            <!-- Name Search -->
+                            <div class="relative group">
+                                <input type="text" id="paramsSearchName" placeholder="Search by patient name"
+                                    class="w-full sm:w-64 bg-white border border-green-200 text-gray-700 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <!-- Date Filter -->
+                            <div class="relative group">
+                                <input type="date" id="paramsSearchDate"
+                                    class="w-full sm:w-auto bg-white border border-green-200 text-gray-700 text-sm rounded-xl px-4 py-2.5 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all">
+                            </div>
+
+                            <!-- Search Button (Visual, as filtering is real-time) -->
+                            <button onclick="filterBookings()"
+                                class="p-2.5 bg-green-50 text-green-700 rounded-xl hover:bg-green-600 hover:text-white transition-all border border-green-200">
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="table-view">
+                            <thead>
+                                <tr>
+                                    <th data-key="name">Patient Name</th>
+                                    <th data-key="type">Inquiry Type</th>
+                                    <th data-key="date_time">Schedule</th>
+                                    <th title="Health Goals/Concerns">Problem</th>
+                                    <th title="Previous Ayurveda Experience">Exp. (Y/N)</th>
+                                    <th title="Previous Consultation Details">Exp. Details</th>
+                                    <th data-key="status">Status</th>
+                                    <th data-key="phone">Contact</th>
+                                    <th data-key="actions" class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingTableBody"></tbody>
+                        </table>
+                        <div id="noBookingsMsg"
+                            class="hidden py-8 text-center text-gray-600 font-medium bg-green-50 rounded-2xl border border-dashed border-green-200 mt-4">
+                            No bookings found for the selected criteria
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app_logic.js"></script>
+    <script>
+        // Custom logic to handle the specific layout of this new dashboard
+        // We override the default initAdminDashboard logic visually but reuse the data fetching
+
+        // --- TOGGLE SECTION LOGIC ---
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const otherSectionId = sectionId === 'booking-section' ? 'order-section-wrapper' : 'booking-section';
+            const otherSection = document.getElementById(otherSectionId);
+
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                otherSection.style.display = 'none'; // Optional: hide other to show only one at a time for cleaner look
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        // --- SEARCH & FILTER LOGIC ---
+        function filterBookings() {
+            const nameQuery = document.getElementById('paramsSearchName').value.toLowerCase();
+            const dateQuery = document.getElementById('paramsSearchDate').value; // YYYY-MM-DD
+
+            const rows = document.querySelectorAll('#bookingTableBody tr');
+            let hasVisible = false;
+
+            rows.forEach(row => {
+                const nameCell = row.cells[0].innerText.toLowerCase();
+                const dateCell = row.cells[2].innerText; // "2026-02-01 morning" or similar
+
+                const matchesName = nameCell.includes(nameQuery);
+                const matchesDate = !dateQuery || dateCell.includes(dateQuery);
+
+                if (matchesName && matchesDate) {
+                    row.style.display = '';
+                    hasVisible = true;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const noMsg = document.getElementById('noBookingsMsg');
+            if (!hasVisible) {
+                noMsg.classList.remove('hidden');
+            } else {
+                noMsg.classList.add('hidden');
+            }
+        }
+
+        // Attach Real-time Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('paramsSearchName').addEventListener('input', filterBookings);
+            document.getElementById('paramsSearchDate').addEventListener('change', filterBookings);
+        });
+        // -----------------------------
+
+        async function deleteBooking(id) {
+            if (!confirm('Are you sure you want to delete this booking?')) return;
+
+            try {
+                const res = await fetch('api/admin_data.php?action=delete_booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    loadData();
+                } else {
+                    alert('Delete failed: ' + data.message);
+                }
+            } catch (e) {
+                console.error("Delete Error", e);
+                alert('An error occurred while deleting.');
+            }
+        }
+
+        async function toggleBookingStatus(id, currentStatus) {
+            // Determine new status
+            const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
+
+            try {
+                const res = await fetch('api/update_booking_status.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, status: newStatus })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    // Reload data to refresh the table
+                    loadData();
+                } else {
+                    alert('Status update failed: ' + (data.message || 'Unknown error'));
+                }
+            } catch (e) {
+                console.error("Status Update Error", e);
+                alert('An error occurred while updating status.');
+            }
+        }
+
+        async function toggleOrderStatus(id, currentStatus) {
+            // Cycle through statuses: pending -> confirmed -> completed -> pending
+            let newStatus = 'pending';
+            if (currentStatus === 'pending') newStatus = 'confirmed';
+            else if (currentStatus === 'confirmed') newStatus = 'completed';
+            else if (currentStatus === 'completed') newStatus = 'pending';
+
+            try {
+                const res = await fetch('api/update_order_status.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, status: newStatus })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    loadData();
+                } else {
+                    alert('Order status update failed: ' + (data.message || 'Unknown error'));
+                }
+            } catch (e) {
+                console.error("Order Status Update Error", e);
+                alert('An error occurred while updating order status.');
+            }
+        }
+
+        async function deleteOrder(id) {
+            if (!confirm('Are you sure you want to delete this order?')) return;
+
+            try {
+                const res = await fetch('api/admin_data.php?action=delete_order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    loadData();
+                } else {
+                    alert('Delete failed: ' + data.message);
+                }
+            } catch (e) {
+                console.error("Delete Error", e);
+                alert('An error occurred while deleting.');
+            }
+        }
+
+        async function loadData() {
+            try {
+                // Determine if we need to call initAdminDashboard or fetch manually
+                // Since app_logic.js has a specific implementation for the OLD dashboard structure (checking specific IDs),
+                // we might need to map the data to these NEW IDs.
+
+                // Let's manually fetch here to ensure perfect mapping for this unique layout
+                const res = await fetch('api/admin_data.php?action=stats');
+                const data = await res.json();
+
+                // Counters
+                document.getElementById('totalBookingsCount').innerText = data.stats.total_bookings || 0;
+                document.getElementById('totalOrdersCount').innerText = data.stats.total_orders || 0;
+                document.getElementById('pendingOrdersCount').innerText = data.stats.orders || 0;
+                document.getElementById('pendingTreatmentsCount').innerText = data.stats.pending_bookings || 0;
+
+                // Order Table
+                document.getElementById('orderTableBody').innerHTML = (data.recentOrders || []).map(o => `
+                    <tr>
+                        <td>
+                            <div class="text-sm font-bold" style="color: #1b5e20;">${o.customer_name || 'Anonymous'}</div>
+                            <div class="text-xs font-medium" style="color: #757575;">Order #${o.id}</div>
+                        </td>
+                        <td class="text-xs font-bold uppercase tracking-tighter" style="color: #558b2f;">
+                            ${o.package_name}
+                        </td>
+                        <td>
+                            <div class="text-sm font-medium" style="color: #2e7d32;">${o.created_at.split(' ')[0]}</div>
+                            <div class="text-xs" style="color: #757575;">${o.created_at.split(' ')[1]}</div>
+                        </td>
+                        <td class="max-w-[150px]">
+                            <div class="text-xs text-gray-700 truncate" title="${o.health_concerns ? o.health_concerns.replace(/"/g, '&quot;') : ''}">${o.health_concerns || '-'}</div>
+                        </td>
+                        <td>
+                            <div class="text-xs font-bold ${o.experienced_ayurveda === 'yes' ? 'text-green-600' : 'text-gray-500'}">${o.experienced_ayurveda ? o.experienced_ayurveda.toUpperCase() : '-'}</div>
+                        </td>
+                        <td class="max-w-[150px]">
+                            <div class="text-xs text-gray-700 truncate" title="${o.previous_consultation_details ? o.previous_consultation_details.replace(/"/g, '&quot;') : ''}">${o.previous_consultation_details || '-'}</div>
+                        </td>
+                        <td>
+                            <span class="status-tag ${o.status}" 
+                                  onclick="toggleOrderStatus(${o.id}, '${o.status}')"
+                                  style="cursor: pointer; transition: all 0.3s ease;"
+                                  title="Click to toggle status">
+                                ${o.status.toUpperCase()}
+                            </span>
+                        </td>
+                        <td class="text-sm font-mono" style="color: #558b2f;">${o.customer_phone || 'N/A'}</td>
+                        <td class="text-right">
+                            <button onclick="deleteOrder(${o.id})" class="p-2 hover:bg-red-500/10 rounded-lg text-gray-500 hover:text-red-500 transition-all group" title="Void Order">
+                                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="group-hover:scale-110 transition-transform">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+
+                // Booking Table
+                const bookingBody = document.getElementById('bookingTableBody');
+                if (bookingBody) {
+                    bookingBody.innerHTML = (data.recentBookings || []).map(b => `
+                        <tr>
+                            <td>
+                                <div class="text-sm font-bold" style="color: #1b5e20;">${b.first_name} ${b.last_name}</div>
+                                <div class="text-xs font-medium" style="color: #757575;">Record #${b.id}</div>
+                            </td>
+                            <td class="text-xs font-bold uppercase tracking-tighter" style="color: #558b2f;">
+                                ${b.inquiry_details || b.inquiry_type}
+                            </td>
+                            <td>
+                                <div class="text-sm font-medium" style="color: #2e7d32;">${b.preferred_date}</div>
+                                <div class="text-xs" style="color: #757575;">${b.preferred_time}</div>
+                            </td>
+                            <td class="max-w-[150px]">
+                                <div class="text-xs text-gray-700 truncate" title="${b.health_concerns ? b.health_concerns.replace(/"/g, '&quot;') : ''}">${b.health_concerns || '-'}</div>
+                            </td>
+                            <td>
+                                <div class="text-xs font-bold ${b.experienced_ayurveda === 'yes' ? 'text-green-600' : 'text-gray-500'}">${b.experienced_ayurveda ? b.experienced_ayurveda.toUpperCase() : '-'}</div>
+                            </td>
+                            <td class="max-w-[150px]">
+                                <div class="text-xs text-gray-700 truncate" title="${b.previous_consultation_details ? b.previous_consultation_details.replace(/"/g, '&quot;') : ''}">${b.previous_consultation_details || '-'}</div>
+                            </td>
+                            <td>
+                                <span class="status-tag ${b.status || 'pending'}" 
+                                      onclick="toggleBookingStatus(${b.id}, '${b.status || 'pending'}')" 
+                                      style="cursor: pointer; transition: all 0.3s ease;"
+                                      title="Click to toggle status">
+                                    ${(b.status || 'pending').toUpperCase()}
+                                </span>
+                            </td>
+                            <td class="text-sm font-mono" style="color: #558b2f;">${b.phone}</td>
+                            <td class="text-right">
+                                <button onclick="deleteBooking(${b.id})" class="p-2 hover:bg-red-500/10 rounded-lg text-gray-500 hover:text-red-500 transition-all group" title="Remove Record">
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="group-hover:scale-110 transition-transform">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+
+                // Show Content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboardContent').style.display = 'block';
+                document.getElementById('dashboardContent').classList.add('animate-fade-in');
+
+            } catch (e) {
+                console.error("Dashboard Load Error", e);
+            }
+        }
+
+        // Smooth scroll navigation with active state tracking
+        function initSmoothNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = {
+                'login-section': document.getElementById('login-section'),
+                'order-section': document.getElementById('order-section'),
+                'booking-section': document.getElementById('booking-section')
+            };
+
+            // Smooth scroll to section on click
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const href = item.getAttribute('href');
+
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetSection = document.getElementById(targetId);
+
+                        if (targetSection) {
+                            // Scroll to section
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                                inline: 'nearest'
+                            });
+
+                            // Update active state
+                            navItems.forEach(nav => nav.classList.remove('active'));
+                            item.classList.add('active');
+                        } else if (href === '#') {
+                            // Dashboard overview - scroll to top
+                            document.querySelector('.main-content').scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            navItems.forEach(nav => nav.classList.remove('active'));
+                            item.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Intersection Observer for automatic active state updates
+            const observerOptions = {
+                root: document.querySelector('.main-content'),
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        const correspondingNav = document.querySelector(`.nav-item[href="#${sectionId}"]`);
+
+                        if (correspondingNav) {
+                            navItems.forEach(nav => nav.classList.remove('active'));
+                            correspondingNav.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            Object.values(sections).forEach(section => {
+                if (section) observer.observe(section);
+            });
+
+            // Check scroll position for dashboard overview
+            const mainContent = document.querySelector('.main-content');
+            mainContent.addEventListener('scroll', () => {
+                if (mainContent.scrollTop < 100) {
+                    const dashboardNav = document.querySelector('.nav-item[href="#"]');
+                    if (dashboardNav && !dashboardNav.classList.contains('active')) {
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        dashboardNav.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check session first
+            fetch('api/auth.php?action=check_session')
+                .then(r => r.json())
+                .then(session => {
+                    if (!session.loggedIn || session.role !== 'admin') {
+                        window.location.href = 'login.html';
+                    } else {
+                        loadData();
+                        // Initialize smooth navigation
+                        setTimeout(initSmoothNavigation, 500);
+                        // Auto-refresh every 5 seconds
+                        setInterval(loadData, 5000);
+                    }
+                });
+
+            document.getElementById('logoutBtn').addEventListener('click', async () => {
+                await fetch('api/auth.php?action=logout');
+                window.location.href = 'login.html';
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

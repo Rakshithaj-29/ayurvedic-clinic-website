@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore authentic Ayurvedic treatments at AyurVeda Wellness. From Panchakarma detox to therapeutic massages, discover personalized healing therapies for your wellness journey.">
+    <meta name="keywords"
+        content="Ayurvedic treatments, Panchakarma, Abhyanga massage, Shirodhara, natural healing, holistic therapy, wellness treatments">
+    <title>Ayurvedic Treatments - Natural Healing Therapies | Naati Vaidyalaya</title>
+    <link rel="stylesheet" href="./main.css">
+
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.2" defer></script>
+</head>
+
+<body class="bg-background">
+    <!-- Alert Box (Global) -->
+    <div id="alertBox"
+        class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] hidden p-4 min-w-[300px] rounded-xl shadow-2xl font-medium animate-fade-in bg-white border border-gray-200">
+    </div>
+
+    <!-- Navigation Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20 bg-cover bg-center bg-no-repeat"
+        style="background-image: linear-gradient(rgba(150, 209, 126, 0.7), rgba(160, 209, 125, 0.5)), url('images/back11.png');">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute top-10 left-10 w-32 h-32 text-primary animate-pulse-slow" viewBox="0 0 100 100"
+                fill="currentColor">
+                <path d="M50 10C50 10 30 20 30 40C30 50 35 60 50 70C65 60 70 50 70 40C70 20 50 10 50 10Z" />
+            </svg>
+            <svg class="absolute bottom-20 right-20 w-40 h-40 text-secondary animate-pulse-slow" viewBox="0 0 100 100"
+                fill="currentColor" style="animation-delay: 1s;">
+                <circle cx="50" cy="50" r="30" />
+            </svg>
+            <svg class="absolute top-1/2 left-1/4 w-24 h-24 text-accent animate-pulse-slow" viewBox="0 0 100 100"
+                fill="currentColor" style="animation-delay: 2s;">
+                <path d="M50 10C50 10 30 20 30 40C30 50 35 60 50 70C65 60 70 50 70 40C70 20 50 10 50 10Z" />
+            </svg>
+        </div>
+
+        <div class="container-custom relative z-10 text-center py-16">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full mb-6 animate-fade-in">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-primary">
+                    <path d="M10 2C10 2 6 4 6 8C6 10 7 12 10 14C13 12 14 10 14 8C14 4 10 2 10 2Z" />
+                </svg>
+                <span class="text-sm font-medium text-text-primary" data-key="treat_hero_badge">Authentic Ayurvedic
+                    Therapies</span>
+            </div>
+
+            <h1 class="font-headline text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 animate-slide-up"
+                style="animation-delay: 0.2s;">
+                <span data-key="treat_hero_title_prefix">Healing</span> <span class="text-primary"
+                    data-key="treat_hero_title_accent">Treatments</span> <span data-key="treat_hero_title_suffix">for
+                    Every Need</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                style="animation-delay: 0.4s;" data-key="treat_hero_desc">
+                Discover personalized Ayurvedic therapies designed to restore balance, eliminate toxins, and promote
+                lasting wellness through natural healing.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up"
+                style="animation-delay: 0.6s;">
+                <a href="#treatments-catalog"
+                    class="btn btn-primary text-lg px-8 py-4 shadow-organic-xl hover:scale-105"
+                    data-key="explore_treatments">
+                    Explore Treatments
+                </a>
+                <a href="booking.html" class="btn btn-outline text-lg px-8 py-4" data-key="schedule_consultation">
+                    Schedule Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="section-padding bg-surface">
+        <div class="container-custom">
+            <div
+                class="card-elevated max-w-5xl mx-auto shadow-organic-2xl border border-primary-100 bg-white/95 backdrop-blur-md">
+                <div class="p-6 md:p-10">
+                    <!-- Title & Subtitle -->
+                    <div class="mb-10">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
+                            <div class="hidden md:block w-20"></div> <!-- Spacer for optical centering on desktop -->
+                            <h3 class="font-headline text-3xl text-text-primary text-center"
+                                data-key="treat_finder_home_title">Find Treatment</h3>
+                            <div class="flex justify-end w-20">
+                                <button
+                                    class="reset-filters text-primary hover:text-primary-700 font-medium flex items-center gap-1 transition-colors group text-sm"
+                                    title="Reset all filters">
+                                    <span data-key="reset_filters">Reset</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" class="group-hover:rotate-180 transition-transform">
+                                        <path
+                                            d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-center" data-key="treat_finder_home_desc">Quickly find
+                            therapies for your specific needs</p>
+                    </div>
+
+                    <!-- Filters Grid -->
+                    <div class="grid md:grid-cols-3 gap-8 mb-10">
+                        <!-- Condition -->
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold text-primary-700 uppercase tracking-widest block"
+                                data-key="treat_label_condition">Health Condition</label>
+                            <select id="conditionFilter"
+                                class="form-input bg-surface-50 border-transparent focus:bg-white transition-all py-4">
+                                <option value="" data-key="treat_opt_all_cond">All Conditions</option>
+                                <option value="stress" data-key="treat_opt_stress">Stress & Anxiety</option>
+                                <option value="digestive" data-key="treat_opt_digestive">Digestive Issues</option>
+                                <option value="pain" data-key="treat_opt_pain">Pain Management</option>
+                                <option value="detox" data-key="treat_opt_detox">Detoxification</option>
+                                <option value="skin" data-key="treat_opt_skin">Skin Health</option>
+                                <option value="immunity" data-key="treat_opt_immunity">Immunity Boost</option>
+                                <option value="women" data-key="treat_opt_women">Women's Health</option>
+                                <option value="bone" data-key="treat_opt_bone">Bone & Joint</option>
+                            </select>
+                        </div>
+
+                        <!-- Type -->
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold text-primary-700 uppercase tracking-widest block"
+                                data-key="treat_label_type">Treatment Type</label>
+                            <select id="typeFilter"
+                                class="form-input bg-surface-50 border-transparent focus:bg-white transition-all py-4">
+                                <option value="" data-key="treat_opt_all_types">All Types</option>
+                                <option value="massage" data-key="treat_opt_massage">Massage Therapy</option>
+                                <option value="cleansing" data-key="treat_opt_cleansing">Cleansing Therapy</option>
+                                <option value="rejuvenation" data-key="treat_opt_rejuvenation">Rejuvenation</option>
+                                <option value="specialized" data-key="treat_opt_specialized">Specialized Treatment
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Duration -->
+                        <div class="space-y-3">
+                            <label class="text-xs font-bold text-primary-700 uppercase tracking-widest block"
+                                data-key="treat_label_duration">Session Duration</label>
+                            <select id="durationFilter"
+                                class="form-input bg-surface-50 border-transparent focus:bg-white transition-all py-4">
+                                <option value="" data-key="treat_opt_any_dur">Any Duration</option>
+                                <option value="short" data-key="treat_opt_short">30-60 min</option>
+                                <option value="medium" data-key="treat_opt_medium">60-90 min</option>
+                                <option value="long" data-key="treat_opt_long">90+ min</option>
+                                <option value="multi" data-key="treat_opt_multi">Multi-day</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="flex justify-center">
+                        <button id="findTreatmentBtn"
+                            class="btn btn-primary w-full md:w-auto min-w-[300px] justify-center py-5 text-xl font-headline shadow-organic-xl hover:scale-105 transition-all group bg-primary hover:bg-primary-700 text-white border-none">
+                            <span data-key="find_treatments">Find Treatments</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" class="ml-2 group-hover:translate-x-1 transition-transform">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Filters Display -->
+                <div id="activeFilters" class="mt-2 flex flex-wrap gap-2 px-10 pb-6 hidden">
+                    <span class="text-sm text-text-secondary" data-key="treat_active_filters">Active filters:</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Catalog -->
+    <section id="treatments-catalog" class="section-padding bg-background">
+        <div class="container-custom">
+            <div class="text-center mb-4">
+                <span
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4"
+                    data-key="treat_catalog_badge">Comprehensive
+                    Care</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="treat_catalog_title_prefix">Our</span> <span class="text-primary"
+                        data-key="treat_catalog_title_accent">Signature Treatments</span>
+                </h2>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto" data-key="treat_catalog_desc">
+                    Each therapy is carefully designed to address specific health concerns while promoting overall
+                    balance and vitality
+                </p>
+            </div>
+
+            <div id="treatmentsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Treatment Card 1: Panchakarma -->
+                <div id="panchakarma"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="detox digestive" data-type="cleansing" data-duration="multi">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/panchakarma1.jpg"
+                            alt="Panchakarma detoxification therapy with traditional Ayurvedic oils and healing herbs in serene spa setting"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute top-4 right-4">
+                            <span class="badge badge-accent" data-key="badge_popular">Most Popular</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_7_21_days">7-21
+                                Days</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_pancha_title">
+                            Panchakarma Detoxification</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_pancha_subtitle">Cleansing Therapy •
+                            Multi-day Program</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_pancha_desc">
+                            Comprehensive five-step purification process that eliminates deep-seated toxins, rejuvenates
+                            tissues, and restores natural balance through specialized cleansing methods.
+                        </p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2"
+                            data-key="treat_key_benefits">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_pancha_feat_1">Deep cellular detoxification</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_pancha_feat_2">Enhanced digestive function</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_pancha_feat_3">Improved immunity and vitality</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,499</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">94%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Panchakarma Detoxification'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 2: Polio -->
+                <div id="polio"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="stress pain" data-type="massage" data-duration="medium">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/polio2.jpg"
+                            alt="Abhyanga massage therapy with warm herbal oils promoting relaxation and circulation in peaceful spa environment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/3757954/pexels-photo-3757954.jpeg?auto=compress&cs=tinysrgb&w=800'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_60_90_min">60-90
+                                min</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_polio_title">Polio
+                            Rehabilitation Care</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_polio_subtitle">Massage Therapy •
+                            60-90 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_polio_desc">A comprehensive
+                            rehabilitation approach focused
+                            on improving mobility, strengthening weakened muscles, and enhancing quality of life for
+                            individuals affected by polio through personalized therapies and care.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            <span data-key="treat_key_benefits">Key Benefits</span>
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_polio_feat_1">Stress and tension relief</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_polio_feat_2">Improved circulation and lymphatic flow</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_polio_feat_3">Skin nourishment and rejuvenation</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,149</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">97%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Polio Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 3: Stroke -->
+                <div id="stroke"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="stress" data-type="specialized" data-duration="medium">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/stroke_card.png"
+                            alt="Shirodhara therapy with continuous stream of warm oil flowing on forehead for mental clarity and stress relief"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy" onerror=" this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2940&auto=format&fit=crop'
+                            ; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_60_90_min">60-90
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_stroke_title">Stroke
+                            Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_stroke_subtitle">Specialized
+                            Treatment • 60-90 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_stroke_desc">A holistic treatment
+                            approach focused on
+                            restoring movement, speech, and neurological function after stroke through targeted
+                            therapies, guided rehabilitation, and continuous care.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_stroke_feat_1">Mental clarity and focus</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_stroke_feat_2">Anxiety and stress relief</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_stroke_feat_3">Improved sleep quality</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2199</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">96%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Stroke Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 4: Epilepsy -->
+                <div id="epilepsy"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="immunity" data-type="specialized" data-duration="short">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/epilepsy_card.jpg"
+                            alt="Nasya therapy with herbal oil application for respiratory health and sinus relief"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=800'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_30_45_min">30-45
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_epilepsy_title">
+                            Epilepsy Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_epilepsy_subtitle">Specialized
+                            Treatment • 30-45 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_epilepsy_desc">A comprehensive
+                            treatment approach focused on
+                            reducing seizure frequency, improving neurological stability, and enhancing overall quality
+                            of life through personalized care and continuous monitoring.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_epilepsy_feat_1">Sinus and respiratory relief</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_epilepsy_feat_2">Enhanced mental clarity</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_epilepsy_feat_3">Headache and migraine relief</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">3,999&#x20b9;</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">93%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Epilepsy Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 5: Neuralgia -->
+                <div id="neuralgia"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="pain" data-type="specialized" data-duration="short">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/neurologia_card.jpg"
+                            alt="Kati Basti treatment with warm oil pooling on lower back for pain relief and healing"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/3997991/pexels-photo-3997991.jpeg?auto=compress&cs=tinysrgb&w=800'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_60_min">60 min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_neuralgia_title">
+                            Neuralgia Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_neuralgia_subtitle">Specialized
+                            Treatment • 60 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_neuralgia_desc">A targeted
+                            treatment approach focused on
+                            relieving nerve pain, reducing inflammation, and restoring nerve function through
+                            specialized therapies and individualized care.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_neuralgia_feat_1">Lower back pain relief</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_neuralgia_feat_2">Spinal health improvement</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_neuralgia_feat_3">Muscle strengthening</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">2569&#x20b9;</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">95%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Neuralgia Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 6: Blood Clots -->
+                <div id="blood-clots"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="skin detox" data-type="rejuvenation" data-duration="medium">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/blood_clot_card.webp"
+                            alt="Udvartana herbal powder massage for detoxification and skin rejuvenation"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_60_75_min">60-75
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_blood_clots_title">
+                            Blood Clots Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_blood_clots_subtitle">Rejuvenation •
+                            60-75 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_blood_clots_desc">A specialized
+                            treatment approach focused on
+                            improving blood circulation, reducing clot formation risks, and supporting vascular health
+                            through personalized therapies and continuous care.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_blood_clots_feat_1">Skin exfoliation and glow</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_blood_clots_feat_2">Weight management support</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_blood_clots_feat_3">Lymphatic drainage</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,159</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">92%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Blood Clots Treatment'); return false;">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment Card 7: Anemia -->
+                <div id="anemia"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="immunity digestive" data-type="specialized" data-duration="short">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/anemia_card.jpg" alt="Anemia Treatment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary">45-60 min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_anemia_title">Anemia
+                            Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_anemia_subtitle">Specialized
+                            Treatment • 45-60 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_anemia_desc">Specialized
+                            Ayurvedic treatment to improve
+                            hemoglobin
+                            levels and blood health through dietary changes and herbal medications.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_anemia_feat_1">Increases hemoglobin naturally</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_anemia_feat_2">Improves energy levels</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_anemia_feat_3">Enhances blood circulation</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,199</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">96%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Anemia Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 8: Hematuria -->
+                <div id="hematuria"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="detox" data-type="cleansing" data-duration="short">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/hematuria_card.jfif" alt="Hematuria Treatment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_45_60_min">45-60
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_hematuria_title">
+                            Hematuria Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_hematuria_subtitle">Specialized
+                            Treatment • 45-60 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_hematuria_desc">Natural therapies
+                            to address blood in urine,
+                            strengthening the urinary system and treating underlying infections or inflammation.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hematuria_feat_1">Stops internal bleeding</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hematuria_feat_2">Heals urinary tract infections</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hematuria_feat_3">Strengthens kidney function</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,249</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">94%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Hematuria Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 9: Hand Poisoning -->
+                <div id="hand-poisoning"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="skin detox" data-type="specialized" data-duration="short">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/hand_poison_card.jpg" alt="Hand Poisoning Treatment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_30_45_min">30-45
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_hand_poisoning_title">
+                            Hand Poisoning Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_hand_poisoning_subtitle">Specialized
+                            Treatment • 30-45 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_hand_poisoning_desc">Traditional
+                            antidotes and detoxification
+                            treatments
+                            to neutralize toxins and restore skin and tissue health.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hand_poisoning_feat_1">Neutralizes localized toxins</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hand_poisoning_feat_2">Reduces swelling and pain</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_hand_poisoning_feat_3">Promotes tissue repair</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;1,149</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">98%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Hand Poisoning Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 10: Rickets -->
+                <div id="rickets"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="bone" data-type="specialized" data-duration="multi">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/ricket_card.jpg" alt="Childhood Rickets Treatment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary"
+                                data-key="duration_multi_day">Multi-day</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_rickets_title">
+                            Childhood Rickets Treatment</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_rickets_subtitle">Specialized
+                            Treatment • Multi-day Program</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_rickets_desc">Holistic care for
+                            bone health in children,
+                            utilizing
+                            medicated oils and nutritional support to strengthen bones and improve development.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_rickets_feat_1">Strengthens bone density</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_rickets_feat_2">Corrects skeletal deformities</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_rickets_feat_3">Promotes healthy growth</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;2,299</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">90%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Rickets Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Treatment Card 11: Gynecological -->
+                <div id="gynecological"
+                    class="treatment-card card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2"
+                    data-condition="women" data-type="specialized" data-duration="medium">
+                    <div class="relative h-56 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/gynaecological_card.jpg" alt="Gynecological Diseases Treatment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_60_90_min">60-90
+                                min</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-2xl text-text-primary mb-2" data-key="treat_gyne_title">
+                            Gynecological Diseases</h3>
+                        <p class="text-sm text-text-tertiary mb-3" data-key="treat_gyne_subtitle">Specialized Treatment
+                            • 60-90 minutes</p>
+                        <p class="text-text-secondary leading-relaxed" data-key="treat_gyne_desc">Comprehensive care for
+                            women's health issues,
+                            regulating hormonal balance and promoting reproductive wellness.</p>
+                    </div>
+
+                    <div class="mb-4 pb-4 border-b border-border-light">
+                        <h4 class="font-semibold text-text-primary mb-2 flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="text-success">
+                                <path d="M8 2l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z" />
+                            </svg>
+                            Key Benefits
+                        </h4>
+                        <ul class="space-y-1 text-sm text-text-secondary">
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_gyne_feat_1">Hormonal balance</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_gyne_feat_2">Menstrual health support</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2" class="text-primary mt-0.5 flex-shrink-0">
+                                    <polyline points="3 8 6 11 13 4" />
+                                </svg>
+                                <span data-key="treat_gyne_feat_3">Reproductive wellness</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-text-tertiary" data-key="pkg_starting_from">Starting from</p>
+                            <p class="text-2xl font-semibold text-primary">&#x20b9;1,299</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-text-tertiary" data-key="treat_success_rate">Success Rate</p>
+                            <p class="text-lg font-semibold text-success">95%</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="booking.html" class="btn btn-primary flex-1" data-key="book_now"
+                            onclick="bookTreatment('Gynecological Diseases Treatment'); return false;">
+                            Book Now
+                        </a>
+
+                    </div>
+                </div>
+                <div id="noResults" class="col-span-full hidden text-center py-16">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"
+                        class="mx-auto mb-6 text-text-tertiary">
+                        <circle cx="40" cy="40" r="30" />
+                        <path d="M40 30v20M40 55h.01" />
+                    </svg>
+                    <h3 class="font-headline text-2xl text-text-primary mb-3" data-key="treat_no_results_title">No
+                        Treatments Found</h3>
+                    <p class="text-text-secondary mb-6" data-key="treat_no_results_desc">Try adjusting your filters to
+                        see more treatment options</p>
+                    <button id="clearFiltersBtn" class="btn btn-primary" data-key="treat_clear_filters">Clear All
+                        Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute top-10 right-10 w-32 h-32" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="40" />
+            </svg>
+            <svg class="absolute bottom-10 left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 10C50 10 30 20 30 40C30 50 35 60 50 70C65 60 70 50 70 40C70 20 50 10 50 10Z" />
+            </svg>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-headline text-4xl md:text-5xl mb-6" data-key="treat_cta_title">
+                    Ready to Start Your Healing Journey?
+                </h2>
+                <p class="text-xl mb-8 text-white/90 leading-relaxed" data-key="treat_cta_desc">
+                    Book a free consultation with our experienced Ayurvedic practitioners to discover the perfect
+                    treatment plan for your unique needs.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="booking.html"
+                        class="btn bg-white text-primary hover:bg-surface-100 text-lg px-8 py-4 shadow-organic-xl hover:scale-105"
+                        data-key="schedule_consultation">
+                        Schedule Free Consultation
+                    </a>
+                    <a href="packages.html"
+                        class="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
+                        data-key="view_packages">
+                        View Wellness Packages
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white pt-16 pb-8">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" fill="#6B8E4A" opacity="0.2" />
+                            <path d="M24 8C24 8 16 12 16 20C16 24 18 28 24 32C30 28 32 24 32 20C32 12 24 8 24 8Z"
+                                fill="#B8860B" />
+                            <circle cx="24" cy="20" r="3" fill="#F8F6F0" />
+                        </svg>
+                        <div>
+                            <h3 class="font-headline text-lg font-semibold" data-key="footer_logo_text">Baira Panditha Naati Vaidyalaya</h3>
+                            <p class="text-xs text-white/70" data-key="footer_slogan">Ancient Wisdom, Modern Care</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed" data-key="footer_desc">
+                        Authentic Ayurvedic healing center dedicated to restoring balance and vitality through
+                        personalized, holistic care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_ayurveda.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="about_ayurveda">About Ayurveda</a></li>
+                        <li><a href="about_ayurveda.html#about-doctor"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="about_doctor">About
+                                Doctor</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treatments">Treatments</a></li>
+                        <li><a href="packages.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="packages">Wellness
+                                Packages</a></li>
+                        <li><a href="facilities.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="facilities">Our
+                                Facilities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_services">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treat_card1_title">Panchakarma Detox</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="abhyanga">Abhyanga
+                                Massage</a></li>
+                        <li><a href="treatments.html"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="shirodhara">Shirodhara Therapy</a></li>
+                        <li><a href="javascript:void(0)" onclick="bookDosha()"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="dosha_cta">Dosha
+                                Assessment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_contact_title">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent mt-1 flex-shrink-0">
+                                <path d="M10 2C6 2 3 5 3 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z" />
+                                <circle cx="10" cy="9" r="2" />
+                            </svg>
+                            <span class="text-white/80 text-sm" data-key="contact_addr_details">Bakila House,Ananthadi Village,Bantwal</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h16v14H2z" />
+                                <path d="M2 3l8 6 8-6" />
+                            </svg>
+                            <a href="mailto:bairapandithavaidyalaya@gmail.com"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">bairapandithavaidyalaya@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h3l2 5-2 2c0 2 3 5 5 5l2-2 5 2v3c-8 0-15-7-15-15z" />
+                            </svg>
+                            <a href="tel:+91 7012675311"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">7012675311</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/70 text-sm" data-key="footer_rights">© 2026 Baira Panditha Naati Vaidyalaya. All Rights Reserved.</p>
+                <div class="flex items-center gap-6">
+
+                    <a href="https://www.instagram.com/baira_pandith_vaidyalaya?igsh=MmI4cXh0bm1ldnNy"
+                        class="text-white/70 hover:text-accent transition-colors" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Filter functionality
+            const conditionFilter = document.getElementById('conditionFilter');
+            const typeFilter = document.getElementById('typeFilter');
+            const durationFilter = document.getElementById('durationFilter');
+            const findTreatmentBtn = document.getElementById('findTreatmentBtn');
+            const resetFilterBtns = document.querySelectorAll('.reset-filters');
+            const clearFiltersBtn = document.getElementById('clearFiltersBtn');
+            const treatmentCards = document.querySelectorAll('.treatment-card');
+            const noResults = document.getElementById('noResults');
+            const activeFilters = document.getElementById('activeFilters');
+
+            if (!conditionFilter || !findTreatmentBtn) {
+                console.error('Filter elements not found!');
+                return;
+            }
+
+            function filterTreatments(shouldScroll = false) {
+                const condition = conditionFilter.value;
+                const type = typeFilter.value;
+                const duration = durationFilter.value;
+
+                let visibleCount = 0;
+
+                treatmentCards.forEach(card => {
+                    const cardConditions = card.dataset.condition.split(' ');
+                    const cardType = card.dataset.type;
+                    const cardDuration = card.dataset.duration;
+
+                    const matchesCondition = !condition || cardConditions.includes(condition);
+                    const matchesType = !type || cardType === type;
+                    const matchesDuration = !duration || cardDuration === duration;
+
+                    if (matchesCondition && matchesType && matchesDuration) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+
+                updateActiveFilters();
+
+                if (shouldScroll && visibleCount > 0) {
+                    const visibleCard = Array.from(treatmentCards).find(card => card.style.display !== 'none');
+                    const target = visibleCard || document.getElementById('treatmentsGrid');
+                    if (target) {
+                        const headerOffset = 100;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                }
+            }
+
+            function updateActiveFilters() {
+                const filters = [];
+                if (conditionFilter.value) filters.push(conditionFilter.options[conditionFilter.selectedIndex].text);
+                if (typeFilter.value) filters.push(typeFilter.options[typeFilter.selectedIndex].text);
+                if (durationFilter.value) filters.push(durationFilter.options[durationFilter.selectedIndex].text);
+
+                if (filters.length > 0) {
+                    activeFilters.classList.remove('hidden');
+                    activeFilters.innerHTML = '<span class="text-sm text-text-secondary">Active filters:</span>' +
+                        filters.map(f => `<span class="badge badge-primary">${f}</span>`).join('');
+                } else {
+                    activeFilters.classList.add('hidden');
+                }
+            }
+
+            function resetAllFilters() {
+                conditionFilter.value = '';
+                typeFilter.value = '';
+                durationFilter.value = '';
+                filterTreatments();
+            }
+
+            conditionFilter.addEventListener('change', () => filterTreatments(false));
+            typeFilter.addEventListener('change', () => filterTreatments(false));
+            durationFilter.addEventListener('change', () => filterTreatments(false));
+            findTreatmentBtn.addEventListener('click', () => filterTreatments(true));
+            resetFilterBtns.forEach(btn => btn.addEventListener('click', resetAllFilters));
+            if (clearFiltersBtn) clearFiltersBtn.addEventListener('click', resetAllFilters);
+
+            // Parse URL parameters and auto-apply filters
+            function applyUrlFilters() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const condition = urlParams.get('condition');
+                const type = urlParams.get('type');
+                const duration = urlParams.get('duration');
+
+                let hasFilters = false;
+                if (condition && conditionFilter) {
+                    conditionFilter.value = condition;
+                    hasFilters = true;
+                }
+                if (type && typeFilter) {
+                    typeFilter.value = type;
+                    hasFilters = true;
+                }
+                if (duration && durationFilter) {
+                    durationFilter.value = duration;
+                    hasFilters = true;
+                }
+
+                if (hasFilters) {
+                    filterTreatments();
+                    // Scroll to results
+                    setTimeout(() => {
+                        const visibleCard = Array.from(treatmentCards).find(card => card.style.display !== 'none');
+                        const target = visibleCard || document.getElementById('treatmentsGrid');
+                        if (target) {
+                            const headerOffset = 100;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                        }
+                    }, 800);
+                }
+            }
+
+            applyUrlFilters();
+
+            // Smooth scroll for hash links
+            document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const currentPath = window.location.pathname;
+                    const linkPath = this.pathname;
+                    if (currentPath === linkPath || (linkPath.endsWith('/') && currentPath.endsWith('index.html')) || (currentPath.endsWith('/') && linkPath.endsWith('index.html'))) {
+                        const targetId = this.getAttribute('href').split('#')[1];
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            e.preventDefault();
+                            const headerOffset = 100;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                            history.pushState(null, null, '#' + targetId);
+                        }
+                    }
+                });
+            });
+        });
+
+        // Treatment modal placeholder
+        function openTreatmentModal(treatmentId) {
+            alert(`Detailed information about ${treatmentId} would open in a modal. This is a placeholder for the full implementation.`);
+        }
+    </script>
+
+    <script src="js/translation.js?v=4"></script>
+    <script src="js/header.js?v=4"></script>
+    <script>
+        // Inject Header
+        renderGlobalHeader('treatments');
+    </script>
+    <script src="js/app_logic_v5.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Naati Vaidyalaya</title>
+    <link rel="stylesheet" href="./main.css">
+    <script src="js/translation.js" defer></script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .bg-nature {
+            background-image: url('images/background2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Password strength bar colors */
+        .pw-bar-1 { background-color: #ef4444; }
+        .pw-bar-2 { background-color: #f97316; }
+        .pw-bar-3 { background-color: #eab308; }
+        .pw-bar-4 { background-color: #22c55e; }
+
+        .pw-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 6px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .pw-checklist li {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+        .pw-checklist li.pass { color: #16a34a; }
+        .pw-checklist li.fail { color: #dc2626; }
+        .pw-checklist li .pw-icon { font-style: normal; font-size: 12px; }
+    </style>
+</head>
+
+<body class="bg-nature min-h-screen flex flex-col p-4">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md min-h-[72px] flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-2 w-full">
+            <div class="flex items-center justify-between">
+                <!-- Logo Section -->
+                <div class="flex items-center gap-3">
+                    <div
+                        class="bg-white p-1 rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src="images/logo1.png" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 object-contain">
+                    </div>
+                    <span class="text-xl font-bold text-primary-900" data-key="footer_logo_text">Baira Panditha</span>
+                </div>
+
+                <!-- Logout Button -->
+                <button id="navLogoutBtn" style="display:none"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                    onclick="loginPageLogout()">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span data-key="log_out">Logout</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div class="h-20"></div>
+
+    <!-- Centered Container Wrapper -->
+    <div class="flex-1 flex items-center justify-center">
+        <!-- Login Container -->
+        <div class="glass-panel w-full max-w-md p-8 rounded-3xl shadow-2xl animate-fade-in relative z-10 transition-all duration-300"
+            id="authContainer">
+
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="font-headline text-4xl text-primary-900 mb-2" id="loginTitle" data-key="welcome_back">Welcome
+                    Back</h1>
+                <h1 class="font-headline text-4xl text-primary-900 mb-2 hidden" id="registerTitle" data-key="join_us">
+                    Join
+                    Us</h1>
+                <p class="text-gray-600 font-medium" id="loginSubtitle" data-key="enter_details">Please enter your
+                    details
+                    to continue</p>
+                <p class="text-gray-600 font-medium hidden" id="registerSubtitle" data-key="start_journey">Start your
+                    healing journey today</p>
+            </div>
+
+            <!-- Alert Box -->
+            <div id="alertBox" class="hidden p-4 mb-6 rounded-xl text-sm font-medium transition-all"></div>
+
+            <!-- Login Form -->
+            <form id="unifiedLoginForm" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1" data-key="email_label">Email
+                        Address</label>
+                    <div class="relative">
+                        <input type="email" id="email"
+                            class="w-full pl-5 pr-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                            placeholder="" required>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2 ml-1">
+                        <label class="block text-sm font-bold text-gray-700" data-key="password_label">Password</label>
+                        <a href="#" id="forgotPasswordLink" class="text-xs text-primary font-semibold hover:underline"
+                            data-key="forgot_password">Forgot Password?</a>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="password"
+                            class="w-full pl-5 pr-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                            placeholder="" required>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-2"
+                    data-key="sign_in_btn">
+                    Sign In
+                </button>
+
+                <div class="relative flex items-center py-2">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-sm font-medium" data-key="or_divider">OR</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div id="googleBtnLogin" class="flex justify-center"></div>
+            </form>
+
+            <!-- Register Form (Hidden Initially) -->
+            <form id="registerForm" class="space-y-5 hidden">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1" data-key="full_name_label">Full
+                        Name</label>
+                    <input type="text" id="regName"
+                        class="w-full px-5 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1" data-key="email_label">Email
+                        Address</label>
+                    <input type="email" id="regEmail"
+                        class="w-full px-5 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1"
+                        data-key="password_label">Password</label>
+                    <input type="password" id="regPassword"
+                        class="w-full px-5 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="" required autocomplete="new-password">
+                    <!-- Password strength meter -->
+                    <div id="regPasswordStrength" class="mt-2 hidden">
+                        <div class="flex gap-1 mb-1.5">
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="regBar1"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="regBar2"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="regBar3"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="regBar4"></div>
+                        </div>
+                        <ul class="pw-checklist" id="regPwChecklist">
+                            <li id="regCheck_len"><span class="pw-icon">○</span> <span data-key="pw_too_short">Must be at least 8 characters</span></li>
+                            <li id="regCheck_upper"><span class="pw-icon">○</span> <span data-key="pw_need_upper">Must include an uppercase letter</span></li>
+                            <li id="regCheck_lower"><span class="pw-icon">○</span> <span data-key="pw_need_lower">Must include a lowercase letter</span></li>
+                            <li id="regCheck_digit"><span class="pw-icon">○</span> <span data-key="pw_need_digit">Must include a number</span></li>
+                            <li id="regCheck_special"><span class="pw-icon">○</span> <span data-key="pw_need_special">Must include a special character</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-secondary hover:bg-secondary-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-2"
+                    data-key="create_account_btn">
+                    Create Account
+                </button>
+
+                <div class="relative flex items-center py-2">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-sm font-medium" data-key="or_divider">OR</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div id="googleBtnRegister" class="flex justify-center"></div>
+            </form>
+
+            <!-- OTP Verification Form (Hidden Initially) -->
+            <form id="otpForm" class="space-y-5 hidden">
+                <div class="text-center mb-6">
+                    <p class="text-sm text-gray-600" data-key="otp_sent_msg">Please enter the 6-digit code sent to your
+                        email</p>
+                    <p id="otpEmailDisplay" class="font-bold text-primary mt-1"></p>
+                </div>
+                <div>
+                    <input type="text" id="otpCode" maxlength="6"
+                        class="w-full text-center text-3xl tracking-[1rem] font-bold px-5 py-4 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="000000" required autocomplete="one-time-code">
+                </div>
+                <button type="submit" id="verifyOtpBtn"
+                    class="w-full bg-primary hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-2"
+                    data-key="verify_otp_btn">
+                    Verify OTP
+                </button>
+                <div class="text-center text-sm text-gray-500">
+                    Didn't receive the code?
+                    <button type="button" id="resendOtpBtn"
+                        class="text-primary font-semibold hover:underline disabled:opacity-40 disabled:cursor-not-allowed ml-1"
+                        disabled>
+                        Resend OTP (<span id="resendCountdown">60</span>s)
+                    </button>
+                </div>
+            </form>
+
+            <!-- Forgot Password Form (Hidden Initially) -->
+            <form id="forgotForm" class="space-y-5 hidden">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1" data-key="email_label">Email
+                        Address</label>
+                    <input type="email" id="forgotEmail"
+                        class="w-full px-5 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="" required>
+                </div>
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-2"
+                    data-key="send_otp_btn">
+                    Send Reset Code
+                </button>
+            </form>
+
+            <!-- Reset Password Form (Hidden Initially) -->
+            <form id="resetForm" class="space-y-5 hidden">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2 ml-1" data-key="new_password_label">New
+                        Password</label>
+                    <input type="password" id="resetPassword"
+                        class="w-full px-5 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all shadow-sm"
+                        placeholder="" required autocomplete="new-password">
+                    <!-- Password strength meter -->
+                    <div id="resetPasswordStrength" class="mt-2 hidden">
+                        <div class="flex gap-1 mb-1.5">
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="resetBar1"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="resetBar2"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="resetBar3"></div>
+                            <div class="h-1.5 flex-1 rounded-full bg-gray-200 transition-all duration-300" id="resetBar4"></div>
+                        </div>
+                        <ul class="pw-checklist" id="resetPwChecklist">
+                            <li id="resetCheck_len"><span class="pw-icon">○</span> <span data-key="pw_too_short">Must be at least 8 characters</span></li>
+                            <li id="resetCheck_upper"><span class="pw-icon">○</span> <span data-key="pw_need_upper">Must include an uppercase letter</span></li>
+                            <li id="resetCheck_lower"><span class="pw-icon">○</span> <span data-key="pw_need_lower">Must include a lowercase letter</span></li>
+                            <li id="resetCheck_digit"><span class="pw-icon">○</span> <span data-key="pw_need_digit">Must include a number</span></li>
+                            <li id="resetCheck_special"><span class="pw-icon">○</span> <span data-key="pw_need_special">Must include a special character</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-2"
+                    data-key="reset_password_btn">
+                    Reset Password
+                </button>
+            </form>
+
+
+            <!-- Toggle Info -->
+            <div class="mt-8 text-center pt-6 border-t border-gray-200/50">
+                <p id="loginToggleText" class="text-gray-600">
+                    <span data-key="new_user_toggle">New to AyurVeda?</span>
+                    <a href="#" id="showRegisterBtn"
+                        class="text-primary font-bold hover:text-primary-800 hover:underline transition-colors"
+                        data-key="create_account_link">Create an
+                        account</a>
+                </p>
+                <p id="registerToggleText" class="text-gray-600 hidden">
+                    <span data-key="existing_user_toggle">Already have an account?</span>
+                    <a href="#" id="showLoginBtn"
+                        class="text-primary font-bold hover:text-primary-800 hover:underline transition-colors"
+                        data-key="sign_in_link">Sign in</a>
+                </p>
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href="homepage.html"
+                    class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors font-medium">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5" />
+                        <path d="M12 19l-7-7 7-7" />
+                    </svg>
+                    <span data-key="back_home">Back to Website</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/app_logic_v5.js?v=3"></script>
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // Logout functionality for login page navbar
+        async function loginPageLogout() {
+            try {
+                await fetch('api/auth.php?action=logout');
+                localStorage.removeItem('user_session'); // Clear cache
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+            window.location.href = 'homepage.html';
+        }
+
+        // Initialize Google Login
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "722087991674-tevfkoaiug0m9jqrqhv0ni4i4a4ksrr7.apps.googleusercontent.com",
+                callback: handleGoogleLogin
+            });
+
+            // Render buttons for both forms
+            const renderOptions = {
+                theme: "outline",
+                size: "large",
+                width: "100%",
+                text: "continue_with",
+                shape: "rectangular"
+            };
+
+            google.accounts.id.renderButton(
+                document.getElementById("googleBtnLogin"),
+                renderOptions
+            );
+
+            google.accounts.id.renderButton(
+                document.getElementById("googleBtnRegister"),
+                renderOptions
+            );
+        };
+
+        async function handleGoogleLogin(response) {
+            try {
+                const res = await fetch('api/auth.php?action=google_login', {
+                    method: 'POST',
+                    body: JSON.stringify({ credential: response.credential })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirect = urlParams.get('redirect');
+                    window.location.href = redirect || data.redirect || 'homepage.html';
+                } else {
+                    showAlert(data.message || 'Google login failed', 'error');
+                }
+            } catch (error) {
+                console.error('Google login error:', error);
+                showAlert('Connection error during Google login.', 'error');
+            }
+        }
+
+        // DOM Elements
+        const loginForm = document.getElementById('unifiedLoginForm');
+        const registerForm = document.getElementById('registerForm');
+        const otpForm = document.getElementById('otpForm');
+        const forgotForm = document.getElementById('forgotForm');
+        const resetForm = document.getElementById('resetForm');
+
+        const loginToggleText = document.getElementById('loginToggleText');
+        const registerToggleText = document.getElementById('registerToggleText');
+
+        const showRegisterBtn = document.getElementById('showRegisterBtn');
+        const showLoginBtn = document.getElementById('showLoginBtn');
+        const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+
+        const mainTitle = document.getElementById('loginTitle');
+        const regTitle = document.getElementById('registerTitle');
+        const mainSubtitle = document.getElementById('loginSubtitle');
+        const regSubtitle = document.getElementById('registerSubtitle');
+
+        let currentEmail = '';
+        let currentType = 'registration'; // or 'forgot_password'
+
+        function hideAllForms() {
+            [loginForm, registerForm, otpForm, forgotForm, resetForm].forEach(f => f.classList.add('hidden'));
+            [mainTitle, regTitle, mainSubtitle, regSubtitle, loginToggleText, registerToggleText].forEach(e => e.classList.add('hidden'));
+        }
+
+        // View Switchers
+        function showRegisterView(e) {
+            if (e) e.preventDefault();
+            hideAllForms();
+            registerForm.classList.remove('hidden');
+            registerToggleText.classList.remove('hidden');
+            regTitle.classList.remove('hidden');
+            regSubtitle.classList.remove('hidden');
+        }
+
+        function showLoginView(e) {
+            if (e) e.preventDefault();
+            hideAllForms();
+            loginForm.classList.remove('hidden');
+            loginToggleText.classList.remove('hidden');
+            mainTitle.classList.remove('hidden');
+            mainSubtitle.classList.remove('hidden');
+            mainTitle.textContent = "Welcome Back";
+            mainSubtitle.textContent = "Please enter your details to continue";
+        }
+
+        function showForgotView(e) {
+            if (e) e.preventDefault();
+            hideAllForms();
+            forgotForm.classList.remove('hidden');
+            mainTitle.classList.remove('hidden');
+            mainSubtitle.classList.remove('hidden');
+            mainTitle.textContent = "Recover Password";
+            mainSubtitle.textContent = "Enter your email to receive an OTP";
+        }
+
+        function showOTPView(email, type = 'registration') {
+            currentEmail = email;
+            currentType = type;
+            hideAllForms();
+            document.getElementById('otpEmailDisplay').textContent = email;
+            document.getElementById('otpCode').value = '';
+            const verifyBtn = document.getElementById('verifyOtpBtn');
+            verifyBtn.disabled = false;
+            verifyBtn.textContent = 'Verify OTP';
+            otpForm.classList.remove('hidden');
+            mainTitle.classList.remove('hidden');
+            mainSubtitle.classList.remove('hidden');
+            mainTitle.textContent = "Verify OTP";
+            mainSubtitle.textContent = "Check your email for the code";
+            startResendCountdown();
+        }
+
+        function showResetView() {
+            hideAllForms();
+            resetForm.classList.remove('hidden');
+            mainTitle.classList.remove('hidden');
+            mainSubtitle.classList.remove('hidden');
+            mainTitle.textContent = "New Password";
+            mainSubtitle.textContent = "Create a secure password";
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // Password Validation Utilities
+        // ──────────────────────────────────────────────────────────
+        function validatePassword(pw) {
+            const checks = {
+                len:     pw.length >= 8,
+                upper:   /[A-Z]/.test(pw),
+                lower:   /[a-z]/.test(pw),
+                digit:   /[0-9]/.test(pw),
+                special: /[^A-Za-z0-9]/.test(pw)
+            };
+            const score = Object.values(checks).filter(Boolean).length;
+            return { checks, score };
+        }
+
+        function updateStrengthUI(pw, prefix) {
+            const wrapper = document.getElementById(prefix + 'PasswordStrength');
+            if (!pw) { wrapper.classList.add('hidden'); return; }
+            wrapper.classList.remove('hidden');
+
+            const { checks, score } = validatePassword(pw);
+
+            // Update checklist items
+            const keys = ['len', 'upper', 'lower', 'digit', 'special'];
+            keys.forEach(k => {
+                const li = document.getElementById(prefix + 'Check_' + k);
+                if (!li) return;
+                const icon = li.querySelector('.pw-icon');
+                if (checks[k]) {
+                    li.classList.add('pass'); li.classList.remove('fail');
+                    icon.textContent = '✓';
+                } else {
+                    li.classList.add('fail'); li.classList.remove('pass');
+                    icon.textContent = '✕';
+                }
+            });
+
+            // Update bar segments
+            const barClasses = ['pw-bar-1','pw-bar-2','pw-bar-3','pw-bar-4'];
+            // Map score (1-5) to filled bars (1-4)
+            const filled = score <= 1 ? 1 : score <= 2 ? 2 : score <= 3 ? 3 : score <= 4 ? 3 : 4;
+            const colorClass = score <= 1 ? 'pw-bar-1' : score <= 2 ? 'pw-bar-2' : score <= 3 ? 'pw-bar-3' : 'pw-bar-4';
+
+            for (let i = 1; i <= 4; i++) {
+                const bar = document.getElementById(prefix + 'Bar' + i);
+                bar.className = 'h-1.5 flex-1 rounded-full transition-all duration-300 ' +
+                    (i <= filled ? colorClass : 'bg-gray-200');
+            }
+        }
+
+        // Attach real-time listeners
+        document.getElementById('regPassword').addEventListener('input', function() {
+            updateStrengthUI(this.value, 'reg');
+        });
+        document.getElementById('resetPassword').addEventListener('input', function() {
+            updateStrengthUI(this.value, 'reset');
+        });
+
+        // ──────────────────────────────────────────────────────────
+        // Form Handlers
+        // ──────────────────────────────────────────────────────────
+        loginForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch('api/auth.php?action=login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (!res.ok) {
+                    throw new Error(`Server responded with ${res.status}`);
+                }
+
+                const data = await res.json();
+
+                if (data.success) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirect = urlParams.get('redirect');
+                    window.location.href = redirect || data.redirect || 'homepage.html';
+                } else if (data.requires_verification) {
+                    showAlert(data.message, 'error');
+                    showOTPView(data.email, 'registration');
+                } else {
+                    showAlert(data.message || 'Login failed', 'error');
+                }
+            } catch (err) {
+                console.error('Login Error:', err);
+                showAlert('Login failed: ' + err.message, 'error');
+            }
+        };
+
+        registerForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Password strength guard
+            const { score } = validatePassword(password);
+            if (score < 5) {
+                updateStrengthUI(password, 'reg');
+                showAlert('Please create a stronger password. It must be at least 8 characters with uppercase, lowercase, a number, and a special character.', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('api/auth.php?action=register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    showOTPView(email, 'registration');
+                } else {
+                    showAlert(data.message, 'error');
+                }
+            } catch (err) {
+                showAlert('Network error', 'error');
+            }
+        };
+
+        // Resend OTP countdown timer
+        let resendTimer = null;
+        function startResendCountdown() {
+            const resendBtn = document.getElementById('resendOtpBtn');
+            const countdown = document.getElementById('resendCountdown');
+            resendBtn.disabled = true;
+            let seconds = 60;
+            countdown.textContent = seconds;
+            clearInterval(resendTimer);
+            resendTimer = setInterval(() => {
+                seconds--;
+                countdown.textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(resendTimer);
+                    resendBtn.disabled = false;
+                    resendBtn.innerHTML = 'Resend OTP';
+                }
+            }, 1000);
+        }
+
+        document.getElementById('resendOtpBtn').addEventListener('click', async () => {
+            const resendBtn = document.getElementById('resendOtpBtn');
+            resendBtn.disabled = true;
+            try {
+                const action = currentType === 'forgot_password' ? 'forgot_password' : 'register';
+                const bodyData = currentType === 'forgot_password'
+                    ? { email: currentEmail }
+                    : { email: currentEmail, _resend: true };
+
+                // For registration resend, call the register action with stored data if available,
+                // otherwise just call forgot_password style resend via a dedicated resend action.
+                // Best approach: always use forgot_password path for resend since it just regenerates OTP.
+                const res = await fetch('api/auth.php?action=resend_otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail, type: currentType })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showAlert('A new OTP has been sent to your email.', 'success');
+                } else {
+                    showAlert(data.message || 'Failed to resend OTP.', 'error');
+                }
+            } catch (err) {
+                showAlert('Network error. Please try again.', 'error');
+            }
+            startResendCountdown();
+        });
+
+        otpForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const otp = document.getElementById('otpCode').value.trim();
+            const verifyBtn = document.getElementById('verifyOtpBtn');
+
+            // Prevent double-submission
+            if (verifyBtn.disabled) return;
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = 'Verifying...';
+
+            try {
+                const res = await fetch(`api/auth.php?action=verify_otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail, otp, type: currentType })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    if (currentType === 'registration') {
+                        showAlert('Account verified! Logging you in...', 'success');
+                        setTimeout(() => window.location.href = data.redirect || 'homepage.html', 1500);
+                    } else {
+                        showAlert('OTP verified. Set your new password.', 'success');
+                        showResetView();
+                    }
+                } else {
+                    showAlert(data.message, 'error');
+                    verifyBtn.disabled = false;
+                    verifyBtn.textContent = 'Verify OTP';
+                }
+            } catch (err) {
+                showAlert('Network error', 'error');
+                verifyBtn.disabled = false;
+                verifyBtn.textContent = 'Verify OTP';
+            }
+        };
+
+        forgotForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('forgotEmail').value;
+
+            try {
+                const res = await fetch('api/auth.php?action=forgot_password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    showOTPView(email, 'forgot_password');
+                } else {
+                    showAlert(data.message, 'error');
+                }
+            } catch (err) {
+                showAlert('Network error', 'error');
+            }
+        };
+
+        resetForm.onsubmit = async (e) => {
+            e.preventDefault();
+            const otp = document.getElementById('otpCode').value;
+            const password = document.getElementById('resetPassword').value;
+
+            // Password strength guard
+            const { score } = validatePassword(password);
+            if (score < 5) {
+                updateStrengthUI(password, 'reset');
+                showAlert('Please create a stronger password. It must be at least 8 characters with uppercase, lowercase, a number, and a special character.', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch('api/auth.php?action=reset_password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail, otp, password })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showAlert(data.message, 'success');
+                    setTimeout(() => showLoginView(), 2000);
+                } else {
+                    showAlert(data.message, 'error');
+                }
+            } catch (err) {
+                showAlert('Network error', 'error');
+            }
+        };
+
+        // Attach View Listeners
+        showRegisterBtn.onclick = showRegisterView;
+        showLoginBtn.onclick = showLoginView;
+        forgotPasswordLink.onclick = showForgotView;
+
+        // URL Fragment Support
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#register') {
+                showRegisterView();
+            }
+        });
+    </script>
+</body>
+
+</html>
+```

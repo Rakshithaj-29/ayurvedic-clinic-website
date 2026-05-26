@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Baira Panditha Naati Vaidyalaya</title>
+    <meta name="description" content="Welcome to Baira Panditha Naati Vaidyalaya. Authentic Ayurvedic healing.">
+
+    <!-- Use Tailwind CDN for immediate, high-fidelity styling without build dependencies for this splash page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configure Theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#F4F7F0',  /* sage-50 */
+                            100: '#E8EFE0', /* sage-100 */
+                            600: '#5A7A3E', /* sage-600 */
+                            900: '#2C3E1F', /* sage-900 */
+                        },
+                        accent: {
+                            600: '#B8860B', /* gold-600 */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Crimson Text"', 'serif'],
+                        sans: ['"Source Sans 3"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slower': 'spin 4s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                        'zoom-in': 'zoomIn 1.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        zoomIn: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scroll */
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(44, 62, 31, 0.05);
+            /* Soft natural shadow */
+        }
+
+        /* Subtle Background Pattern (SVG encoded) */
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235A7A3E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#F4F7F0] to-[#D1DFC1] min-h-screen flex items-center justify-center relative">
+
+    <!-- Background Pattern Layer -->
+    <div class="absolute inset-0 bg-pattern z-0 pointer-events-none"></div>
+
+    <!-- Ambient Light Orbs -->
+    <div class="absolute top-1/4 left-10 w-96 h-96 bg-primary-600/5 rounded-full blur-3xl animate-float"
+        style="animation-delay: -2s;"></div>
+    <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-accent-600/5 rounded-full blur-3xl animate-float"
+        style="animation-delay: -1s;"></div>
+
+    <!-- Main Content Card -->
+    <div
+        class="relative z-10 glass-card rounded-[2rem] p-10 md:p-14 max-w-lg w-[90%] md:w-full mx-auto text-center animate-fade-in-up">
+
+        <!-- Logo Container -->
+        <div class="mb-12 relative inline-block mx-auto animate-zoom-in">
+            <!-- Glow behind logo -->
+            <div class="absolute inset-0 bg-white/60 blur-3xl rounded-full scale-110"></div>
+            <!-- Logo Container with Background -->
+            <div
+                class="relative z-10 bg-white/95 p-4 md:p-6 rounded-[2.5rem] shadow-xl border border-white/50 backdrop-blur-sm transition-transform hover:scale-105">
+                <img src="images/logo1.png" alt="Baira Panditha Naati Vaidyalaya"
+                    class="w-56 md:w-72 h-56 md:h-72 object-contain mx-auto animate-float">
+            </div>
+        </div>
+
+        <!-- Progress/Loading Ring -->
+        <div class="flex justify-center mb-10">
+            <svg class="animate-spin-slower w-14 h-14 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+                <path class="opacity-80" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- Text Content -->
+        <div class="space-y-4">
+            <h1 class="font-serif text-3xl md:text-4xl text-primary-900 font-bold tracking-tight leading-tight">
+                <span data-key="welcome_to">Welcome to</span> <br>
+                <span class="text-primary-600" data-key="footer_logo_text">Baira Panditha</span> <br>
+                <span
+                    class="text-lg md:text-xl font-sans font-medium text-primary-900/70 tracking-widest uppercase mt-2 block"
+                    data-key="naati_title">Naati
+                    Vaidyalaya</span>
+            </h1>
+
+            <div class="h-6"> <!-- Fixed height to prevent layout shift during text change -->
+                <p class="text-primary-900/60 font-medium text-sm md:text-base animate-pulse" id="loadingText">
+                    प्रिपेयरिंग योर एक्सपीरियंस... (Preparing your experience...)
+                </p>
+            </div>
+        </div>
+
+        <!-- Fallback Link -->
+        <div class="mt-12 opacity-0 animate-[fadeIn_1s_ease-out_7.5s_forwards]">
+            <a href="homepage.html"
+                class="inline-flex items-center gap-2 text-xs md:text-sm text-primary-600/70 hover:text-primary-900 transition-colors border-b border-transparent hover:border-primary-600 pb-0.5">
+                <span data-key="not_redirected_click">Click here if you are not redirected</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Redirection Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingText = document.getElementById('loadingText');
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            
+            // Function to get localized text directly from translations
+            const getTranslation = (key) => {
+                return (window.translations && window.translations[savedLang] && window.translations[savedLang][key]) 
+                    ? window.translations[savedLang][key] 
+                    : key;
+            };
+
+            // Sequence of loading states matching longer 7-8s duration
+            setTimeout(() => {
+                loadingText.classList.remove('animate-pulse');
+                loadingText.style.opacity = '0';
+
+                setTimeout(() => {
+                    loadingText.innerText = getTranslation("connecting_nature");
+                    loadingText.style.opacity = '1';
+                }, 300);
+            }, 2500);
+
+            setTimeout(() => {
+                loadingText.style.opacity = '0';
+                setTimeout(() => {
+                    loadingText.innerText = getTranslation("redirecting_home");
+                    loadingText.style.opacity = '1';
+                }, 300);
+            }, 5000);
+
+            // Redirect after ~7.5 seconds
+            setTimeout(() => {
+                window.location.href = 'homepage.html';
+            }, 7500);
+        });
+    </script>
+</body>
+
+</html>

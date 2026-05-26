@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover curated Ayurvedic wellness packages designed for your unique health goals. From stress relief to complete rejuvenation, find your perfect healing journey.">
+    <meta name="keywords"
+        content="Ayurveda packages, wellness programs, detox packages, stress relief, rejuvenation, holistic healing packages">
+    <title>Wellness Packages - Naati Vaidyalaya </title>
+    <link rel="stylesheet" href="./main.css">
+
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.2" defer></script>
+</head>
+
+<body class="bg-background">
+    <!-- Alert Box (Global) -->
+    <div id="alertBox"
+        class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] hidden p-4 min-w-[300px] rounded-xl shadow-2xl font-medium animate-fade-in bg-white border border-gray-200">
+    </div>
+
+    <!-- Navigation Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/back12.jpg"
+                alt="Serene wellness sanctuary with natural elements and healing herbs creating a peaceful atmosphere for holistic Ayurvedic treatment packages"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary-900/80 via-primary-800/70 to-background"></div>
+        </div>
+
+        <!-- Floating Decorations -->
+        <div class="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <svg class="absolute top-20 right-10 w-16 h-16 text-accent-300 opacity-30 animate-pulse-slow"
+                viewBox="0 0 64 64" fill="currentColor">
+                <path d="M32 8C32 8 16 16 16 32C16 40 20 48 32 56C44 48 48 40 48 32C48 16 32 8 32 8Z" />
+            </svg>
+            <svg class="absolute bottom-20 left-10 w-20 h-20 text-primary-300 opacity-25 animate-pulse-slow"
+                viewBox="0 0 64 64" fill="currentColor" style="animation-delay: 1.5s;">
+                <circle cx="32" cy="32" r="24" />
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container-custom relative z-20 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm rounded-full mb-6 animate-fade-in">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                        <path d="M10 2C10 2 6 4 6 8C6 10 7 12 10 14C13 12 14 10 14 8C14 4 10 2 10 2Z" />
+                    </svg>
+                    <span class="text-sm font-medium text-white" data-key="pkg_hero_badge">Curated Wellness
+                        Journeys</span>
+                </div>
+
+                <h1 class="font-headline text-5xl md:text-6xl lg:text-7xl text-white mb-6 animate-slide-up"
+                    style="animation-delay: 0.2s;">
+                    <span data-key="pkg_hero_title_prefix">Your Path to</span> <span class="text-accent"
+                        data-key="pkg_hero_title_accent">Complete Wellness</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-surface-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                    style="animation-delay: 0.4s;" data-key="pkg_hero_desc">
+                    Discover thoughtfully designed wellness packages that combine ancient Ayurvedic wisdom with
+                    personalized care for lasting transformation.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up"
+                    style="animation-delay: 0.6s;">
+                    <a href="#package-finder"
+                        class="btn btn-accent text-lg px-8 py-4 shadow-organic-xl hover:shadow-organic-xl hover:scale-105">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="2" class="mr-2">
+                            <circle cx="10" cy="10" r="8" />
+                            <path d="M14 14l4 4" />
+                        </svg>
+                        <span data-key="pkg_find_btn">Find Your Package</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Finder Section -->
+    <section id="package-finder" class="section-padding bg-surface">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center mb-6">
+                <span
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4"
+                    data-key="pkg_finder_badge">Personalized
+                    Selection</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="pkg_finder_title_prefix">Find Your Perfect</span> <span class="text-primary"
+                        data-key="pkg_finder_title_accent">Wellness Journey</span>
+                </h2>
+                <p class="text-lg text-text-secondary leading-relaxed" data-key="pkg_finder_desc">
+                    Answer a few questions to discover the package that aligns with your health goals and lifestyle.
+                </p>
+            </div>
+
+            <!-- Quick Finder Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <!-- Goal Card 1 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                    onclick="scrollToPackages('stress')">
+                    <div
+                        class="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="16" cy="16" r="12" />
+                            <path d="M16 12v8M12 16h8" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_goal_stress_title">Stress &
+                        Anxiety Relief</h3>
+                    <p class="text-text-secondary text-sm mb-4" data-key="pkg_goal_stress_desc">Find calm and mental
+                        clarity through targeted therapies
+                    </p>
+                    <span
+                        class="text-primary font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-key="view_packages">View Packages</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 8h8M8 4l4 4-4 4" />
+                        </svg>
+                    </span>
+                </div>
+
+                <!-- Goal Card 2 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                    onclick="scrollToPackages('detox')">
+                    <div
+                        class="w-16 h-16 bg-gradient-secondary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <path d="M16 4v24M8 12l8-8 8 8" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_goal_detox_title">Detox &
+                        Rejuvenation</h3>
+                    <p class="text-text-secondary text-sm mb-4" data-key="pkg_goal_detox_desc">Deep cleansing and
+                        renewal for body and mind</p>
+                    <span
+                        class="text-primary font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-key="view_packages">View Packages</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 8h8M8 4l4 4-4 4" />
+                        </svg>
+                    </span>
+                </div>
+
+                <!-- Goal Card 3 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                    onclick="scrollToPackages('vitality')">
+                    <div
+                        class="w-16 h-16 bg-gradient-accent rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <path d="M16 8l-4 8h8l-4 8" />
+                            <circle cx="16" cy="16" r="12" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_goal_vitality_title">Energy &
+                        Vitality</h3>
+                    <p class="text-text-secondary text-sm mb-4" data-key="pkg_goal_vitality_desc">Restore natural energy
+                        and enhance overall wellness</p>
+                    <span
+                        class="text-primary font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-key="view_packages">View Packages</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 8h8M8 4l4 4-4 4" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Packages Section -->
+    <section class="section-padding bg-background">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center mb-4">
+                <span
+                    class="inline-block px-4 py-2 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium mb-4"
+                    data-key="pkg_featured_badge">Most
+                    Popular</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="pkg_featured_title_prefix">Featured</span> <span class="text-secondary"
+                        data-key="pkg_featured_title_accent">Wellness Packages</span>
+                </h2>
+                <p class="text-lg text-text-secondary" data-key="pkg_featured_desc">
+                    Our most sought-after healing journeys, designed for comprehensive transformation.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-6">
+                <!-- Premium Package 1 -->
+                <div class="card-elevated group hover:shadow-organic-xl transition-all duration-300 overflow-hidden">
+                    <div class="relative h-64 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/rejuvenation.jpg"
+                            alt="Tranquil spa setting with natural elements for complete rejuvenation package featuring Panchakarma detox and therapeutic massages"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                        <div class="absolute top-4 right-4">
+                            <span class="badge badge-accent">Most Popular</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_21_days">21 Days</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-3xl text-text-primary mb-2" data-key="pkg_1_title">Complete
+                            Rejuvenation</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4" data-key="pkg_1_desc">
+                            Our signature wellness journey combining deep detoxification, stress relief, and vitality
+                            restoration through authentic Panchakarma therapy.
+                        </p>
+                    </div>
+
+                    <!-- Package Highlights -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_1_feat_1">Full Panchakarma
+                                detoxification program</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_1_feat_2">Daily Abhyanga massage &
+                                Shirodhara therapy</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_1_feat_3">Personalized herbal
+                                medicine & dietary plan</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_1_feat_4">Yoga & meditation
+                                sessions</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_1_feat_5">3 Physician consultations
+                                & progress tracking</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-border-light">
+                        <div class="flex flex-col">
+                            <span class="text-text-tertiary text-sm" data-key="pkg_starting_from">Starting from</span>
+                            <span class="text-3xl font-headline text-secondary"
+                                data-key="price_899_tag">&#x20b9;12999</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary auth-checked" data-key="book_package"
+                            onclick="buyPackage('Complete Rejuvenation', 12999); return false;">
+                            Book Package
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Premium Package 2 -->
+                <div class="card-elevated group hover:shadow-organic-xl transition-all duration-300 overflow-hidden">
+                    <div class="relative h-64 mb-6 rounded-lg overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Peaceful meditation space with natural lighting for stress relief package featuring Shirodhara therapy and mindfulness practices"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute top-4 right-4">
+                            <span class="badge badge-primary">Best for Stress</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_14_days">14 Days</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="font-headline text-3xl text-text-primary mb-2" data-key="pkg_2_title">Stress Relief
+                            Sanctuary</h3>
+                        <p class="text-text-secondary leading-relaxed mb-4" data-key="pkg_2_desc">
+                            A specialized program for mental clarity and emotional balance through calming therapies and
+                            mindfulness practices.
+                        </p>
+                    </div>
+
+                    <!-- Package Highlights -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_2_feat_1">Daily Shirodhara therapy
+                                sessions</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_2_feat_2">Abhyanga massage for
+                                nervous
+                                system balancing</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_2_feat_3">Guided meditation and
+                                breathwork classes</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_2_feat_4">Stress-reducing herbal
+                                supplements</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-success flex-shrink-0 mt-1">
+                                <polyline points="4 10 8 14 16 6" />
+                            </svg>
+                            <span class="text-text-secondary text-sm" data-key="pkg_2_feat_5">2 practitioner
+                                consultations</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-border-light">
+                        <div class="flex flex-col">
+                            <span class="text-text-tertiary text-sm" data-key="pkg_starting_from">Starting from</span>
+                            <span class="text-3xl font-headline text-primary"
+                                data-key="price_1299_tag">&#x20b9;2999</span>
+                        </div>
+                        <a href="booking.html" class="btn btn-primary auth-checked" data-key="book_package"
+                            onclick="buyPackage('Stress Relief Sanctuary', 2999); return false;">
+                            Book Package
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Packages Grid -->
+    <section class="section-padding bg-surface" id="all-packages">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="pkg_all_title_prefix">All Wellness</span> <span class="text-primary"
+                        data-key="pkg_all_title_accent">Packages</span>
+                </h2>
+                <p class="text-lg text-text-secondary" data-key="pkg_all_desc">
+                    Explore our full range of curated healing journeys for every wellness goal.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Package Card 1 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="images/yoga.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_7_days">7 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_weekend_title">Weekend
+                        Wellness Retreat</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_weekend_desc">
+                        Perfect introduction to Ayurvedic wellness with massage, yoga, and personalized consultations.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold" data-key="price_899_tag">&#x20b9;2999</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Weekend Wellness Retreat', 2999); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 2 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2940&auto=format&fit=crop"
+                            alt="Digestive wellness program with Ayurvedic herbs and healthy nutrition planning"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_10_days">10 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_digestive_title">Digestive
+                        Wellness Program</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_digestive_desc">
+                        Specialized treatments for digestive health with herbal remedies and dietary guidance.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold" data-key="price_1799_tag">&#x20b9;5999</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Digestive Wellness Program', 5999); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 3 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3822621/pexels-photo-3822621.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Energy restoration package with vitality-boosting Ayurvedic treatments and herbal supplements"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_14_days">14 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_energy_title">Energy
+                        Restoration</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_energy_desc">
+                        Revitalize your body and mind with energy-boosting therapies and rejuvenating treatments.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold">&#x20b9;9999</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Energy Restoration', 9999); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 4 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="images/immunity.png"
+                            alt="Immunity boost program with Ayurvedic herbs and strengthening therapies for natural defense"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_7_days">7 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_immunity_title">Immunity
+                        Boost Program</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_immunity_desc">
+                        Strengthen your natural defenses with immunity-enhancing herbs and therapies.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold" data-key="price_1299_tag">&#x20b9;3499</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Immunity Boost Program', 3499); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 5 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Pain management package with therapeutic Ayurvedic treatments for chronic pain relief"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary" data-key="duration_14_days">14 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_pain_title">Pain Management
+                        Package</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_pain_desc">
+                        Natural relief for chronic pain through targeted therapies and herbal treatments.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold" data-key="price_2299_tag">&#x20b9;10999</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Pain Management Package', 10999); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package Card 6 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div class="relative h-48 mb-4 rounded-lg overflow-hidden">
+                        <img src="images/weight.jpg"
+                            alt="Weight management program with balanced Ayurvedic nutrition and metabolism-boosting treatments"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="badge bg-white/90 text-text-primary">21 Days</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-headline text-xl text-text-primary mb-2" data-key="pkg_weight_title">Weight
+                        Management Program</h3>
+                    <p class="text-text-secondary text-sm mb-4 leading-relaxed" data-key="pkg_weight_desc">
+                        Achieve healthy weight through balanced nutrition and metabolism-boosting therapies.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                        <span class="text-primary font-semibold" data-key="price_3499_tag">&#x20b9;13,599</span>
+                        <a href="booking.html"
+                            class="text-primary hover:text-primary-700 font-medium text-sm flex items-center gap-2 group-hover:gap-3 transition-all auth-checked"
+                            onclick="buyPackage('Weight Management Program', 13599); return false;">
+                            <span data-key="book_now">Book Now</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FAQ-SECTION-->
+    <section class="section-padding bg-surface">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                        <span data-key="faq_title_prefix">Frequently Asked</span> <span class="text-secondary"
+                            data-key="faq_title_accent">Questions</span>
+                    </h2>
+                    <p class="text-lg text-text-secondary" data-key="faq_desc">
+                        Everything you need to know about our wellness packages.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="card">
+                        <button class="w-full text-left flex items-center justify-between" onclick="toggleFaq(this)">
+                            <h3 class="font-headline text-xl text-text-primary pr-4" data-key="faq_1_q">What's included
+                                in the package
+                                price?</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="flex-shrink-0 transition-transform duration-300">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="hidden mt-4 text-text-secondary leading-relaxed" data-key="faq_1_a">
+                            All package prices include practitioner consultations, daily treatments, herbal medicines,
+                            yoga and meditation sessions, and personalized dietary plans. Accommodation and meals are
+                            available as optional add-ons.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="card">
+                        <button class="w-full text-left flex items-center justify-between" onclick="toggleFaq(this)">
+                            <h3 class="font-headline text-xl text-text-primary pr-4" data-key="faq_2_q">Can I customize
+                                my package?</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="flex-shrink-0 transition-transform duration-300">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="hidden mt-4 text-text-secondary leading-relaxed" data-key="faq_2_a">
+                            Yes! We offer flexible customization options. During your initial consultation, our
+                            practitioners will work with you to tailor treatments to your specific health goals and
+                            preferences.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="card">
+                        <button class="w-full text-left flex items-center justify-between" onclick="toggleFaq(this)">
+                            <h3 class="font-headline text-xl text-text-primary pr-4" data-key="faq_3_q">What if I need
+                                to reschedule?</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="flex-shrink-0 transition-transform duration-300">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="hidden mt-4 text-text-secondary leading-relaxed" data-key="faq_3_a">
+                            We understand life happens. You can reschedule your package up to 7 days before your start
+                            date without penalty. Please contact us as soon as possible to arrange new dates.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="card">
+                        <button class="w-full text-left flex items-center justify-between" onclick="toggleFaq(this)">
+                            <h3 class="font-headline text-xl text-text-primary pr-4" data-key="faq_4_q">Are packages
+                                suitable for
+                                beginners?</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="flex-shrink-0 transition-transform duration-300">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="hidden mt-4 text-text-secondary leading-relaxed" data-key="faq_4_a">
+                            Absolutely! All our packages are designed to accommodate both beginners and experienced
+                            wellness seekers. Our practitioners will guide you through each step of your journey.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="card">
+                        <button class="w-full text-left flex items-center justify-between" onclick="toggleFaq(this)">
+                            <h3 class="font-headline text-xl text-text-primary pr-4" data-key="faq_5_q">Do you offer
+                                payment plans?</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" class="flex-shrink-0 transition-transform duration-300">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </button>
+                        <div class="hidden mt-4 text-text-secondary leading-relaxed" data-key="faq_5_a">
+                            Yes, we offer flexible payment plans for packages over 2,000. Contact our team to discuss
+                            options that work best for your budget.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute top-10 right-10 w-32 h-32" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="40" />
+            </svg>
+            <svg class="absolute bottom-10 left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 10C50 10 30 20 30 40C30 50 35 60 50 70C65 60 70 50 70 40C70 20 50 10 50 10Z" />
+            </svg>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-headline text-4xl md:text-5xl mb-6" data-key="faq_cta_title">
+                    Ready to Start Your Wellness Journey?
+                </h2>
+                <p class="text-xl mb-8 text-white/90 leading-relaxed" data-key="faq_cta_desc">
+                    Book a free consultation to discover which package is perfect for your unique health goals and
+                    lifestyle.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="booking.html"
+                        class="btn bg-white text-primary hover:bg-surface-100 text-lg px-8 py-4 shadow-organic-xl hover:scale-105"
+                        data-key="pkg_cta_btn_primary">
+                        Schedule Free Consultation
+                    </a>
+                    <a href="treatments.html"
+                        class="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
+                        data-key="pkg_cta_btn_secondary">
+                        Explore Treatments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white pt-16 pb-8">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" fill="#6B8E4A" opacity="0.2" />
+                            <path d="M24 8C24 8 16 12 16 20C16 24 18 28 24 32C30 28 32 24 32 20C32 12 24 8 24 8Z"
+                                fill="#B8860B" />
+                            <circle cx="24" cy="20" r="3" fill="#F8F6F0" />
+                        </svg>
+                        <div>
+                            <h3 class="font-headline text-lg font-semibold" data-key="footer_logo_text">AyurVeda Wellness</h3>
+                            <p class="text-xs text-white/70" data-key="footer_slogan">Ancient Wisdom, Modern Care</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed" data-key="footer_desc">
+                        Authentic Ayurvedic healing center dedicated to restoring balance and vitality through
+                        personalized, holistic care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_ayurveda.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="about_ayurveda">About Ayurveda</a></li>
+                        <li><a href="about_ayurveda.html#about-doctor"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="about_doctor">About
+                                Doctor</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treatments">Treatments</a></li>
+                        <li><a href="packages.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="packages">Wellness
+                                Packages</a></li>
+                        <li><a href="facilities.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="facilities">Our
+                                Facilities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_services">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treat_card1_title">Panchakarma Detox</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="abhyanga">Abhyanga
+                                Massage</a></li>
+                        <li><a href="treatments.html"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="shirodhara">Shirodhara Therapy</a></li>
+                        <li><a href="javascript:void(0)" onclick="bookDosha()"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="dosha_cta">Dosha
+                                Assessment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_contact_title">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent mt-1 flex-shrink-0">
+                                <path d="M10 2C6 2 3 5 3 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z" />
+                                <circle cx="10" cy="9" r="2" />
+                            </svg>
+                            <span class="text-white/80 text-sm" data-key="contact_addr_details">Bakila House,Ananthadi Village,Bantwal</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h16v14H2z" />
+                                <path d="M2 3l8 6 8-6" />
+                            </svg>
+                            <a href="mailto:bairapandithavaidyalaya@gmail.com"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">bairapandithavaidyalaya@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h3l2 5-2 2c0 2 3 5 5 5l2-2 5 2v3c-8 0-15-7-15-15z" />
+                            </svg>
+                            <a href="tel:+91 7012675311"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">7012675311</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/70 text-sm" data-key="footer_rights">© 2026 Baira Panditha Naati Vaidyalaya. All Rights Reserved.</p>
+                <div class="flex items-center gap-6">
+
+                    <a href="https://www.instagram.com/baira_pandith_vaidyalaya?igsh=MmI4cXh0bm1ldnNy"
+                        class="text-white/70 hover:text-accent transition-colors" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // FAQ Toggle function
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('svg');
+            content.classList.toggle('hidden');
+            icon.style.transform = content.classList.contains('hidden') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Scroll to packages function
+        function scrollToPackages(category) {
+            const packagesSection = document.getElementById('all-packages');
+            if (packagesSection) {
+                packagesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    </script>
+
+    <script src="js/translation.js?v=4"></script>
+    <script src="js/header.js?v=4"></script>
+    <script>
+        // Inject Header
+        renderGlobalHeader('packages');
+    </script>
+    <script src="js/app_logic_v5.js?v=4"></script>
+</body>
+
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AyurVeda Wellness - Discover authentic Ayurvedic healing and holistic wellness through ancient wisdom and modern care. Transform your health naturally.">
+    <meta name="keywords"
+        content="Ayurveda, wellness, holistic healing, natural medicine, Ayurvedic treatments, wellness packages">
+    <title>Naati Vaidyalaya - Ancient Wisdom, Modern Healing</title>
+    <link rel="stylesheet" href="./main.css">
+
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fayurvedaw9195back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"
+        async></script>
+    <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.2" defer></script>
+</head>
+
+<body class="bg-background">
+    <!-- Alert Box (Global) -->
+    <div id="alertBox"
+        class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] hidden p-4 min-w-[300px] rounded-xl shadow-2xl font-medium animate-fade-in bg-white border border-gray-200">
+    </div>
+
+    <!-- Navigation Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/background2.jpg"
+                alt="Serene spa setting with natural elements, candles, and healing herbs creating a peaceful Ayurvedic wellness atmosphere"
+                class="w-full h-full object-cover"
+                onerror="this.src='https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary-900/70 via-primary-800/60 to-primary-900/80">
+            </div>
+        </div>
+
+        <!-- Floating Leaf Decorations -->
+        <div class="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <svg class="absolute top-20 left-10 w-16 h-16 text-accent-300 opacity-30 animate-pulse-slow"
+                viewBox="0 0 64 64" fill="currentColor">
+                <path d="M32 8C32 8 16 16 16 32C16 40 20 48 32 56C44 48 48 40 48 32C48 16 32 8 32 8Z" />
+            </svg>
+            <svg class="absolute top-40 right-20 w-12 h-12 text-primary-300 opacity-20 animate-pulse-slow"
+                viewBox="0 0 64 64" fill="currentColor" style="animation-delay: 1s;">
+                <path d="M32 8C32 8 16 16 16 32C16 40 20 48 32 56C44 48 48 40 48 32C48 16 32 8 32 8Z" />
+            </svg>
+            <svg class="absolute bottom-32 left-1/4 w-20 h-20 text-accent-200 opacity-25 animate-pulse-slow"
+                viewBox="0 0 64 64" fill="currentColor" style="animation-delay: 2s;">
+                <path d="M32 8C32 8 16 16 16 32C16 40 20 48 32 56C44 48 48 40 48 32C48 16 32 8 32 8Z" />
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container-custom relative z-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 backdrop-blur-sm rounded-full mb-6 animate-fade-in">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                        <path d="M10 2C10 2 6 4 6 8C6 10 7 12 10 14C13 12 14 10 14 8C14 4 10 2 10 2Z" />
+                    </svg>
+                    <span class="text-sm font-medium text-white" data-key="hero_badge">Authentic Ayurvedic Healing Since
+                        2010</span>
+                </div>
+
+                <h1 class="font-headline text-5xl md:text-6xl lg:text-7xl text-white mb-6 animate-slide-up"
+                    style="animation-delay: 0.2s;">
+                    <span data-key="hero_title_prefix">Discover Your Path to</span> <span class="text-accent"
+                        data-key="hero_title_accent">Natural Wellness</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-surface-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                    style="animation-delay: 0.4s;" data-key="hero_subtitle">
+                    Experience the transformative power of ancient Ayurvedic wisdom combined with modern holistic care.
+                    Begin your journey to balance, vitality, and lasting health.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up"
+                    style="animation-delay: 0.6s;">
+                    <a href="booking.html"
+                        class="btn btn-accent text-lg px-8 py-4 shadow-organic-xl hover:shadow-organic-xl hover:scale-105">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                            stroke-width="2" class="mr-2">
+                            <path d="M3 6l7 5 7-5M3 6v8a2 2 0 002 2h10a2 2 0 002-2V6M3 6a2 2 0 012-2h10a2 2 0 012 2" />
+                        </svg>
+                        <span data-key="hero_cta_consult">Book Free Consultation</span>
+                    </a>
+                    <a href="#dosha-assessment"
+                        class="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4"
+                        data-key="hero_cta_dosha">
+                        Discover Your Dosha
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <a href="#philosophy"
+                class="flex flex-col items-center gap-2 text-white hover:text-accent transition-colors"
+                aria-label="Scroll to philosophy section">
+                <span class="text-sm font-medium" data-key="scroll_explore">Explore More</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section-padding bg-surface">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span
+                    class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4"
+                    data-key="phil_badge">Our
+                    Philosophy</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="phil_title_prefix">Balance. Harmony.</span> <span class="text-primary"
+                        data-key="phil_title_accent">Transformation.</span>
+                </h2>
+                <p class="text-lg text-text-secondary leading-relaxed" data-key="phil_desc">
+                    Ayurveda teaches us that true wellness comes from understanding and nurturing the unique balance
+                    within each individual. Our approach honors this ancient wisdom while embracing modern insights to
+                    create personalized healing journeys.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Principle Card 1 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="16" cy="16" r="12" />
+                            <path d="M16 8v8l4 4" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-4" data-key="phil_card1_title">Holistic
+                        Approach</h3>
+                    <p class="text-text-secondary leading-relaxed" data-key="phil_card1_desc">
+                        We treat the whole person—mind, body, and spirit—addressing root causes rather than just
+                        symptoms for lasting transformation.
+                    </p>
+                </div>
+
+                <!-- Principle Card 2 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-secondary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <path d="M16 4C16 4 8 8 8 16C8 20 10 24 16 28C22 24 24 20 24 16C24 8 16 4 16 4Z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-4" data-key="phil_card2_title">Natural
+                        Healing</h3>
+                    <p class="text-text-secondary leading-relaxed" data-key="phil_card2_desc">
+                        Harnessing the power of herbs, nutrition, and lifestyle practices to support your body's innate
+                        ability to heal and thrive.
+                    </p>
+                </div>
+
+                <!-- Principle Card 3 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-gradient-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2">
+                            <path d="M16 4v24M4 16h24" />
+                            <circle cx="16" cy="16" r="8" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-4" data-key="phil_card3_title">Personalized
+                        Care</h3>
+                    <p class="text-text-secondary leading-relaxed" data-key="phil_card3_desc">
+                        Every treatment plan is uniquely crafted for your constitution, health goals, and lifestyle,
+                        ensuring optimal results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Treatments Section -->
+    <section class="section-padding bg-background">
+        <div class="container-custom">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
+                <div class="max-w-2xl">
+                    <span
+                        class="inline-block px-4 py-2 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium mb-4"
+                        data-key="treat_badge">Our
+                        Treatments</span>
+                    <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-4">
+                        <span data-key="treat_title_prefix">Healing Therapies for</span> <span class="text-secondary"
+                            data-key="treat_title_accent">Every Need</span>
+                    </h2>
+                    <p class="text-lg text-text-secondary" data-key="treat_desc">
+                        Explore our comprehensive range of authentic Ayurvedic treatments designed to restore balance
+                        and vitality.
+                    </p>
+                </div>
+                <a href="treatments.html" class="btn btn-outline">
+                    <span data-key="view_all_treatments">View All Treatments</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                        class="ml-2">
+                        <path d="M5 10h10M10 5l5 5-5 5" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Treatment Card 1 -->
+                <div
+                    class="card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                    <div class="relative h-48 mb-6 rounded-lg overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Panchakarma detoxification therapy with traditional Ayurvedic oils and healing herbs"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                        <div class="absolute top-4 right-4">
+                            <span class="badge badge-accent" data-key="popular_badge">Popular</span>
+                        </div>
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-3" data-key="treat_card1_title">Panchakarma
+                        Detox</h3>
+                    <p class="text-text-secondary mb-4 leading-relaxed" data-key="treat_card1_desc">
+                        Deep cleansing therapy that eliminates toxins, rejuvenates tissues, and restores natural balance
+                        through five purification methods.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-semibold"><span data-key="from_label">From</span>
+                            &#x20b9;2499</span>
+                        <a href="treatments.html"
+                            class="text-primary hover:text-primary-700 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span data-key="learn_more">Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment Card 2 -->
+                <div
+                    class="card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                    <div class="relative h-48 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/stroke_card.png"
+                            alt=" Abhyanga massage therapy with warm herbal oils promoting relaxation and detoxification"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-3" data-key="treat_card2_title">Stroke
+                        Treatment</h3>
+                    <p class="text-text-secondary mb-4 leading-relaxed" data-key="treat_card2_desc">
+                        Therapeutic full-body massage with warm herbal oils that promotes circulation, releases tension,
+                        and nourishes the skin.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-semibold"><span data-key="from_label">From</span>
+                            &#x20b9;2199</span>
+                        <a href="treatments.html"
+                            class="text-primary hover:text-primary-700 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span data-key="learn_more">Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment Card 3 -->
+                <div
+                    class="card-elevated group hover:shadow-organic-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                    <div class="relative h-48 mb-6 rounded-lg overflow-hidden">
+                        <img src="images/ricket_card.jpg"
+                            alt="Shirodhara treatment with continuous stream of warm oil flowing on forehead for mental clarity"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            onerror="this.src='https://images.pexels.com/photos/3757954/pexels-photo-3757954.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+                    </div>
+                    <h3 class="font-headline text-2xl text-text-primary mb-3" data-key="treat_card3_title">Childhood
+                        Rickets Treatment</h3>
+                    <p class="text-text-secondary mb-4 leading-relaxed" data-key="treat_card3_desc">
+                        Calming treatment where warm oil flows continuously on the forehead, reducing stress and
+                        promoting mental clarity.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-semibold"><span data-key="from_label">From</span>
+                            &#x20b9;2299</span>
+                        <a href="treatments.html"
+                            class="text-primary hover:text-primary-700 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span data-key="learn_more">Learn More</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 8h8M8 4l4 4-4 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dosha Assessment Section -->
+    <section id="dosha-assessment" class="section-padding bg-gradient-earth relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute top-0 left-0 w-64 h-64" viewBox="0 0 200 200" fill="currentColor" class="text-primary">
+                <circle cx="100" cy="100" r="80" />
+            </svg>
+            <svg class="absolute bottom-0 right-0 w-96 h-96" viewBox="0 0 200 200" fill="currentColor"
+                class="text-secondary">
+                <circle cx="100" cy="100" r="60" />
+            </svg>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <span
+                    class="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm text-primary-700 rounded-full text-sm font-medium mb-4"
+                    data-key="dosha_badge">Personalized
+                    Wellness</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="dosha_title_prefix">Discover Your</span> <span class="text-accent"
+                        data-key="dosha_title_accent">Unique Constitution</span>
+                </h2>
+                <p class="text-lg text-text-secondary leading-relaxed mb-8" data-key="dosha_desc">
+                    Understanding your dosha—your unique mind-body type—is the foundation of personalized Ayurvedic
+                    care. Take our interactive assessment to receive customized wellness recommendations.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <!-- Vata Card -->
+                <div onclick="bookDosha('Vata')"
+                    class="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-organic hover:shadow-organic-lg transition-all duration-300 cursor-pointer">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-primary">
+                            <path d="M16 4v24M8 12l8-8 8 8M8 20l8 8 8-8" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2 text-center">Vata</h3>
+                    <p class="text-text-secondary text-center text-sm" data-key="dosha_vata_desc">Air & Space -
+                        Creative, energetic, quick-thinking
+                    </p>
+                </div>
+
+                <!-- Pitta Card -->
+                <div onclick="bookDosha('Pitta')"
+                    class="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-organic hover:shadow-organic-lg transition-all duration-300 cursor-pointer">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-secondary">
+                            <path d="M16 8l-4 8h8l-4 8" />
+                            <circle cx="16" cy="16" r="12" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2 text-center">Pitta</h3>
+                    <p class="text-text-secondary text-center text-sm" data-key="dosha_pitta_desc">Fire & Water -
+                        Focused, determined, passionate
+                    </p>
+                </div>
+
+                <!-- Kapha Card -->
+                <div onclick="bookDosha('Kapha')"
+                    class="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-organic hover:shadow-organic-lg transition-all duration-300 cursor-pointer">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+                            stroke-width="2" class="text-accent">
+                            <circle cx="16" cy="16" r="8" />
+                            <circle cx="16" cy="16" r="12" />
+                        </svg>
+                    </div>
+                    <h3 class="font-headline text-xl text-text-primary mb-2 text-center">Kapha</h3>
+                    <p class="text-text-secondary text-center text-sm" data-key="dosha_kapha_desc">Earth & Water - Calm,
+                        stable, nurturing</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="javascript:void(0)" onclick="bookDosha()"
+                    class="btn btn-primary text-lg px-8 py-4 shadow-organic-xl hover:shadow-organic-xl hover:scale-105">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                        class="mr-2">
+                        <circle cx="10" cy="10" r="8" />
+                        <path d="M10 6v8M6 10h8" />
+                    </svg>
+                    <span data-key="dosha_cta">Take the Dosha Assessment</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding bg-background">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span
+                    class="inline-block px-4 py-2 bg-success-100 text-success-700 rounded-full text-sm font-medium mb-4"
+                    data-key="testi_badge">Patient
+                    Stories</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-text-primary mb-6">
+                    <span data-key="testi_title_prefix">Healing</span> <span class="text-success"
+                        data-key="testi_title_accent">Transformations</span>
+                </h2>
+                <p class="text-lg text-text-secondary" data-key="testi_desc">
+                    Real stories from patients who have experienced the transformative power of Ayurvedic healing.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed italic" data-key="testi_1_text">
+                        "After years of digestive issues, the Panchakarma treatment completely transformed my health. I
+                        feel energized and balanced for the first time in decades."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-200 rounded-full flex items-center justify-center">
+                            <span class="text-primary-700 font-semibold">AS</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-text-primary" data-key="testi_1_name">Asha Shetty</p>
+                            <p class="text-sm text-text-tertiary" data-key="testi_1_role">Marketing Executive</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed italic" data-key="testi_2_text">
+                        "The Shirodhara therapy helped me overcome chronic stress and anxiety. The practitioners are
+                        knowledgeable, caring, and truly committed to healing."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-secondary-200 rounded-full flex items-center justify-center">
+                            <span class="text-secondary-700 font-semibold">RP</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-text-primary" data-key="testi_2_name">Rajesh Poojary</p>
+                            <p class="text-sm text-text-tertiary" data-key="testi_2_role">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="card group hover:shadow-organic-lg transition-all duration-300">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="text-accent">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" />
+                        </svg>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed italic" data-key="testi_3_text">
+                        "The personalized wellness package addressed my specific needs beautifully. I've learned
+                        sustainable practices that continue to improve my quality of life."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-accent-200 rounded-full flex items-center justify-center">
+                            <span class="text-accent-700 font-semibold">TG</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-text-primary" data-key="testi_3_name">Thimmappa Gowda</p>
+                            <p class="text-sm text-text-tertiary" data-key="testi_3_role">Yoga Instructor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="absolute top-10 right-10 w-32 h-32" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="40" />
+            </svg>
+            <svg class="absolute bottom-10 left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M50 10C50 10 30 20 30 40C30 50 35 60 50 70C65 60 70 50 70 40C70 20 50 10 50 10Z" />
+            </svg>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="font-headline text-4xl md:text-5xl mb-6" data-key="cta_title">
+                    Begin Your Healing Journey Today
+                </h2>
+                <p class="text-xl mb-8 text-white/90 leading-relaxed" data-key="cta_desc">
+                    Experience the transformative power of authentic Ayurvedic care. Schedule your free consultation and
+                    discover a personalized path to lasting wellness.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="booking.html"
+                        class="btn bg-white text-primary hover:bg-surface-100 text-lg px-8 py-4 shadow-organic-xl hover:scale-105">
+                        <span data-key="cta_btn_primary">Schedule Free Consultation</span>
+                    </a>
+                    <a href="about_ayurveda.html"
+                        class="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4">
+                        <span data-key="cta_btn_secondary">Learn About Ayurveda</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white pt-16 pb-8">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" fill="#6B8E4A" opacity="0.2" />
+                            <path d="M24 8C24 8 16 12 16 20C16 24 18 28 24 32C30 28 32 24 32 20C32 12 24 8 24 8Z"
+                                fill="#B8860B" />
+                            <circle cx="24" cy="20" r="3" fill="#F8F6F0" />
+                        </svg>
+                        <div>
+                            <h3 class="font-headline text-lg font-semibold" data-key="footer_logo_text">AyurVeda
+                                Wellness</h3>
+                            <p class="text-xs text-white/70" data-key="footer_slogan">Ancient Wisdom, Modern Care</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed" data-key="footer_desc">
+                        Authentic Ayurvedic healing center dedicated to restoring balance and vitality through
+                        personalized, holistic care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_ayurveda.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="about_ayurveda">About Ayurveda</a></li>
+                        <li><a href="about_ayurveda.html#about-doctor"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="about_doctor">About
+                                Doctor</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treatments">Treatments</a></li>
+                        <li><a href="packages.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="packages">Wellness
+                                Packages</a></li>
+                        <li><a href="facilities.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="facilities">Our
+                                Facilities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_services">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="treat_card1_title">Panchakarma Detox</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="abhyanga">Abhyanga
+                                Message</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors"
+                                data-key="shirodhara">Shirodhara Therapy</a></li>
+                        <li><a href="javascript:void(0)" onclick="bookDosha()"
+                                class="text-white/80 hover:text-accent transition-colors" data-key="dosha_cta">Dosha
+                                Assessment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_contact_title">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent mt-1 flex-shrink-0">
+                                <path d="M10 2C6 2 3 5 3 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z" />
+                                <circle cx="10" cy="9" r="2" />
+                            </svg>
+                            <span class="text-white/80 text-sm" data-key="contact_addr_details">Bakila House,Ananthadi
+                                Village,Bantwal</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h16v14H2z" />
+                                <path d="M2 3l8 6 8-6" />
+                            </svg>
+                            <a href="mailto:bairapandithavaidyalaya@gmail.com"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">bairapandithavaidyalaya@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+                                stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h3l2 5-2 2c0 2 3 5 5 5l2-2 5 2v3c-8 0-15-7-15-15z" />
+                            </svg>
+                            <a href="tel:+91 7012675311"
+                                class="text-white/80 hover:text-accent transition-colors text-sm">7012675311</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/70 text-sm" data-key="footer_rights">© 2026 Baira Panditha Naati Vaidyalaya. All
+                    Rights Reserved.</p>
+                <div class="flex items-center gap-6">
+
+                    <a href="https://www.instagram.com/baira_pandith_vaidyalaya?igsh=MmI4cXh0bm1ldnNy"
+                        class="text-white/70 hover:text-accent transition-colors" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/translation.js?v=4"></script>
+    <script src="js/header.js?v=4"></script>
+    <script>
+        // Inject Header
+        renderGlobalHeader('home');
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="js/app_logic_v5.js?v=4"></script>
+</body>
+
+</html>

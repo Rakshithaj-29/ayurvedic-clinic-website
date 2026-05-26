@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Book your authentic Ayurvedic consultation. Start your journey toward natural wellness with personalized care at Naati Vaidyalaya.">
+    <meta name="keywords" content="Ayurveda consultation, book appointment, wellness booking, Ayurvedic practitioner">
+    <title>Book Consultation - Naati Vaidyalaya</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body class="bg-background">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-24 bg-primary-900">
+        <!-- Background Image with Parallax-like effect -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/back5.jpg" alt="Ayurvedic consultation setting"
+                class="w-full h-full object-cover scale-110 animate-subtle-zoom">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-900/40 to-primary-950/90">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
+        </div>
+
+        <!-- Floating Decorations -->
+        <div class="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+            <div class="absolute top-1/4 left-10 w-64 h-64 bg-primary-400/10 rounded-full blur-3xl animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-accent-400/10 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="w-full bg-cover bg-center py-20 px-6" style="background-image: url('your-background-image.jpg');">
+            <div class="max-w-screen-xl mx-auto text-center text-white">
+                <span
+                    class="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-base font-semibold mb-6 animate-fade-in"
+                    data-key="booking_hero_badge">Your Journey Begins Here</span>
+                <h1 class="font-headline text-6xl md:text-7xl mb-6 animate-slide-up" style="animation-delay: 0.2s;">
+                    <span data-key="booking_hero_title">Book Your Consultation</span>
+                </h1>
+                <p class="text-2xl max-w-3xl mx-auto leading-relaxed animate-slide-up" style="animation-delay: 0.4s;"
+                    data-key="booking_hero_desc">
+                    Schedule a visit with our expert practitioners to receive a personalized Ayurvedic wellness plan.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Main Booking Section -->
+    <section class="section-padding bg-surface">
+        <div class="container-custom max-w-4xl">
+            <div class="card-elevated p-8 md:p-12">
+                <div class="mb-10 text-center">
+                    <h2 class="font-headline text-3xl text-text-primary mb-4" data-key="booking_form_title">Consultation
+                        Details</h2>
+                    <p class="text-text-secondary" data-key="booking_form_subtitle">Please fill out the form below and
+                        we will contact you within 24 hours.</p>
+                </div>
+
+                <!-- Alert Box -->
+                <div id="alertBox" class="hidden p-4 mb-6 rounded-lg text-sm font-medium"></div>
+
+                <form class="space-y-8" id="contactForm">
+                    <!-- Inquiry Type -->
+                    <div>
+                        <label class="form-label" data-key="contact_inquiry_label">Treatment / Package *</label>
+                        <input type="hidden" id="inquiryType" name="inquiryType" value="treatment" required>
+                        <input type="hidden" name="inquiry_price" id="inquiry_price" value="">
+                        <input type="text" id="inquiryDetailsInput" name="inquiry_details"
+                            class="form-input transition-all duration-300"
+                            placeholder="Type treatment/package name or choose from our list" required>
+                    </div>
+
+                    <!-- Name Fields -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="form-label" data-key="contact_fname_label">First Name
+                                *</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input"
+                                placeholder="Enter your first name" data-key="booking_placeholder_fname" required>
+                        </div>
+                        <div>
+                            <label for="lastName" class="form-label" data-key="contact_lname_label">Last Name </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input"
+                                placeholder="Enter your last name" data-key="booking_placeholder_lname">
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="form-label" data-key="contact_email_label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com"
+                                data-key="booking_placeholder_email" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="form-label" data-key="contact_phone_label">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input"
+                                placeholder="Enter 10-digit phone number" data-key="booking_placeholder_phone"
+                                maxlength="10" minlength="10" pattern="[0-9]{10}"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" required>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Date & Time -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="preferredDate" class="form-label" data-key="contact_date_label">Preferred Date
+                                *</label>
+                            <input type="date" id="preferredDate" name="preferredDate" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="preferredTime" class="form-label" data-key="contact_time_label">Preferred Time
+                                *</label>
+                            <select id="preferredTime" name="preferredTime" class="form-input" required>
+                                <option value="" data-key="contact_opt_time">Select time</option>
+                                <option value="morning" data-key="contact_opt_morning">Morning (8:00 AM - 12:00 PM)
+                                </option>
+                                <option value="afternoon" data-key="contact_opt_afternoon">Afternoon (12:00 PM - 4:00
+                                    PM)</option>
+                                <option value="evening" data-key="contact_opt_evening">Evening (4:00 PM - 8:00 PM)
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Health Concerns -->
+                    <div>
+                        <label for="healthConcerns" class="form-label" data-key="contact_health_concerns">Tell us about
+                            your health goals or concerns</label>
+                        <textarea id="healthConcerns" name="healthConcerns" rows="4" class="form-input"
+                            placeholder="Share what you'd like to address through Ayurvedic care..."
+                            data-key="booking_placeholder_concerns"></textarea>
+                    </div>
+
+                    <!-- Previous Experience -->
+                    <div>
+                        <label class="form-label" data-key="contact_experience_label">Have you experienced Ayurvedic
+                            treatments before?</label>
+                        <div class="flex gap-8 mt-3">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="radio" name="experience" value="yes"
+                                    class="w-5 h-5 text-primary focus:ring-primary"
+                                    onchange="togglePreviousConsultation(true)">
+                                <span class="text-text-secondary" data-key="contact_exp_yes">Yes</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="radio" name="experience" value="no"
+                                    class="w-5 h-5 text-primary focus:ring-primary" checked
+                                    onchange="togglePreviousConsultation(false)">
+                                <span class="text-text-secondary" data-key="contact_exp_no">No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Previous Consultation Details (Hidden by Default) -->
+                    <div id="previousConsultationContainer" class="hidden animate-fade-in">
+                        <label for="prevConsultationDetails" class="form-label">Please share details of your previous
+                            consultation/treatment</label>
+                        <textarea id="prevConsultationDetails" name="prevConsultationDetails" rows="4"
+                            class="form-input" placeholder="Type about your previous experience here..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-6 border-t border-border-light">
+                        <button type="submit"
+                            class="btn btn-primary w-full py-4 text-lg shadow-organic-lg hover:shadow-organic-xl transition-all">
+                            <span data-key="contact_submit">Schedule My Consultation</span>
+                        </button>
+                    </div>
+
+                    <p class="text-center text-sm text-text-tertiary mt-4" data-key="booking_privacy_agree">
+                        By submitting, you agree to our privacy policy. We'll contact you shortly.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white pt-16 pb-8">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" fill="#6B8E4A" opacity="0.2" />
+                            <path d="M24 8C24 8 16 12 16 20C16 24 18 28 24 32C30 28 32 24 32 20C32 12 24 8 24 8Z"
+                                fill="#B8860B" />
+                            <circle cx="24" cy="20" r="3" fill="#F8F6F0" />
+                        </svg>
+                        <div>
+                            <h3 class="font-headline text-lg font-semibold" data-key="footer_logo_text">Baira Panditha Naati Vaidyalaya</h3>
+                            <p class="text-xs text-white/70" data-key="footer_slogan">Ancient Wisdom, Modern Care</p>
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed" data-key="footer_desc">
+                        Authentic Ayurvedic healing center dedicated to restoring balance and vitality through personalized, holistic care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_quick_links">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_ayurveda.html" class="text-white/80 hover:text-accent transition-colors" data-key="about_ayurveda">About Ayurveda</a></li>
+                        <li><a href="about_ayurveda.html#about-doctor" class="text-white/80 hover:text-accent transition-colors" data-key="about_doctor">About Doctor</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="treatments">Treatments</a></li>
+                        <li><a href="packages.html" class="text-white/80 hover:text-accent transition-colors" data-key="packages">Wellness Packages</a></li>
+                        <li><a href="facilities.html" class="text-white/80 hover:text-accent transition-colors" data-key="facilities">Our Facilities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_services">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="treat_card1_title">Panchakarma Detox</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="abhyanga">Abhyanga Massage</a></li>
+                        <li><a href="treatments.html" class="text-white/80 hover:text-accent transition-colors" data-key="shirodhara">Shirodhara Therapy</a></li>
+                        <li><a href="javascript:void(0)" onclick="bookDosha()" class="text-white/80 hover:text-accent transition-colors" data-key="dosha_cta">Dosha Assessment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-headline text-lg font-semibold mb-4" data-key="footer_contact_title">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="text-accent mt-1 flex-shrink-0">
+                                <path d="M10 2C6 2 3 5 3 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z" />
+                                <circle cx="10" cy="9" r="2" />
+                            </svg>
+                            <span class="text-white/80 text-sm" data-key="contact_addr_details">Bakila House,Ananthadi Village,Bantwal</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h16v14H2z" />
+                                <path d="M2 3l8 6 8-6" />
+                            </svg>
+                            <a href="mailto:bairapandithavaidyalaya@gmail.com" class="text-white/80 hover:text-accent transition-colors text-sm">bairapandithavaidyalaya@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="text-accent flex-shrink-0">
+                                <path d="M2 3h3l2 5-2 2c0 2 3 5 5 5l2-2 5 2v3c-8 0-15-7-15-15z" />
+                            </svg>
+                            <a href="tel:+91 7012675311" class="text-white/80 hover:text-accent transition-colors text-sm">7012675311</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/70 text-sm" data-key="footer_rights">© 2026 Baira Panditha Naati Vaidyalaya. All Rights Reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="javascript:void(0)" class="text-white/70 hover:text-accent transition-colors" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)" class="text-white/70 hover:text-accent transition-colors" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)" class="text-white/70 hover:text-accent transition-colors" aria-label="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/translation.js?v=4"></script>
+    <script src="js/header.js?v=4"></script>
+    <script>
+        renderGlobalHeader('booking');
+
+        // Set minimum date for date picker to tomorrow
+        const dateInput = document.getElementById('preferredDate');
+        if (dateInput) {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const minDate = tomorrow.toISOString().split('T')[0];
+            dateInput.setAttribute('min', minDate);
+        }
+
+        // Toggle Previous Consultation Details Display
+        function togglePreviousConsultation(show) {
+            const container = document.getElementById('previousConsultationContainer');
+            const textarea = document.getElementById('prevConsultationDetails');
+            if (container) {
+                if (show) {
+                    container.classList.remove('hidden');
+                    textarea.required = true;
+                } else {
+                    container.classList.add('hidden');
+                    textarea.required = false;
+                    textarea.value = ''; // Clear if hidden
+                }
+            }
+        }
+
+        // --- SELECTION LOGIC ---
+        function selectInquiry(type, specificName = null) {
+            const inquiryInput = document.getElementById('inquiryType');
+            const detailsInput = document.getElementById('inquiryDetailsInput');
+            inquiryInput.value = type;
+            if (specificName) {
+                detailsInput.value = specificName;
+                detailsInput.placeholder = specificName;
+            } else if (type === 'treatment') {
+                detailsInput.value = "Treatment";
+                detailsInput.placeholder = "Treatment";
+            } else {
+                detailsInput.value = "Package";
+                detailsInput.placeholder = "Package";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            // PRE-FILL LOGIC
+            const selectedPackage = localStorage.getItem('selected_package');
+            const selectedPrice = localStorage.getItem('selected_price');
+            const selectedTreatment = localStorage.getItem('selected_treatment');
+            const selectedDosha = localStorage.getItem('selected_dosha');
+
+            if (selectedPackage) {
+                selectInquiry('package', selectedPackage);
+                const healthTextarea = document.getElementById('healthConcerns');
+                if (healthTextarea) {
+                    healthTextarea.value = `I am interested in the "${selectedPackage}" package (Price: ${selectedPrice ? '₹' + selectedPrice : 'N/A'}).`;
+                }
+                const priceInput = document.getElementById('inquiry_price');
+                if (priceInput && selectedPrice) priceInput.value = selectedPrice;
+                localStorage.removeItem('selected_package');
+                localStorage.removeItem('selected_price');
+            } else if (selectedTreatment) {
+                selectInquiry('treatment', selectedTreatment);
+                const healthTextarea = document.getElementById('healthConcerns');
+                if (healthTextarea) healthTextarea.value = `I am interested in the "${selectedTreatment}" treatment.`;
+                localStorage.removeItem('selected_treatment');
+            } else if (selectedDosha) {
+                const isSpecific = ['Vata', 'Pitta', 'Kapha'].includes(selectedDosha);
+                const displayDosha = isSpecific ? `${selectedDosha} Dosha Analysis` : selectedDosha;
+                selectInquiry('treatment', displayDosha);
+                const healthTextarea = document.getElementById('healthConcerns');
+                if (healthTextarea) {
+                    healthTextarea.value = isSpecific
+                        ? `I would like to schedule a consultation for ${selectedDosha} Dosha analysis and wellness recommendations.`
+                        : `I would like to schedule a Dosha Assessment.`;
+                }
+                localStorage.removeItem('selected_dosha');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                // centralized checkSession and showAuthModal from app_logic_v5.js
+                const session = await checkSession();
+                if (!session.loggedIn) {
+                    showAuthModal('Booking consultations and accessing services is available only for registered users. Kindly log in to proceed.', 'Please Login First');
+                    return;
+                }
+
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+
+                const submitBtn = form.querySelector('[type="submit"]');
+                const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Processing...';
+                }
+
+                try {
+                    const res = await fetch(`api/booking.php`, {
+                        method: 'POST',
+                        body: JSON.stringify(data)
+                    });
+                    const result = await res.json();
+
+                    if (result.success && data.inquiryType === 'package') {
+                        await fetch(`api/order.php`, {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                package_name: data.inquiry_details,
+                                price: data.inquiry_price || 0,
+                                customer_name: `${data.firstName} ${data.lastName}`,
+                                customer_email: data.email,
+                                customer_phone: data.phone,
+                                health_concerns: data.healthConcerns || '',
+                                experienced_ayurveda: data.experience || 'no',
+                                previous_consultation_details: data.prevConsultationDetails || ''
+                            })
+                        }).catch(err => console.error("Order error:", err));
+                    }
+
+                    if (result.success) {
+                        showSuccessPopup(); // from app_logic_v5.js
+                        form.reset();
+                    } else {
+                        if (result.message && (result.message.toLowerCase().includes('full') || result.message.toLowerCase().includes('limit'))) {
+                            showSlotFullModal(data.preferredTime); // from app_logic_v5.js
+                        } else {
+                            showAlert(result.message || "Booking failed.");
+                        }
+                    }
+                } catch (error) {
+                    console.error("Booking Error:", error);
+                    showAlert("An error occurred. Please try again.");
+                } finally {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/translation.js?v=4"></script>
+    <script src="js/header.js?v=4"></script>
+    <script src="js/app_logic_v5.js?v=4"></script>
+</body>
+
+</html>
