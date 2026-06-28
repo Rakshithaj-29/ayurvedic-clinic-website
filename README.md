@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-## The Baira Panditha Naati Vaidyalaya website is designed to bridge traditional Ayurvedic healthcare with modern web technology.
-## It replaces manual appointment management with a digital solution, making clinic services more accessible and organized.
-##The application offers a responsive and user-friendly interface, allowing patients to access clinic information and schedule appointments conveniently.
+The Baira Panditha Naati Vaidyalaya website is designed to bridge traditional Ayurvedic healthcare with modern web technology.
+It replaces manual appointment management with a digital solution, making clinic services more accessible and organized.
+The application offers a responsive and user-friendly interface, allowing patients to access clinic information and schedule appointments conveniently.
 
 ## Features
 ### User Module
@@ -34,7 +34,8 @@
 
 ### Database
 -MySQL
--Server
+
+### Server
 -Apache (XAMPP)
 
 ## Author
